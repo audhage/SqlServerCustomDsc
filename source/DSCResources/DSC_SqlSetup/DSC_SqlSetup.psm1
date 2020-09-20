@@ -1084,6 +1084,16 @@ function Set-TargetResource
 
         # Only keep unique paths and add a member to keep track if the path is mapped to a disk.
         $requiredDrive = $requiredDrive | Sort-Object -Unique | Add-Member -MemberType NoteProperty -Name IsMapped -Value $false -PassThru
+        $requiredDrive = $requiredDrive | Sort-Object -Unique | Add-Member -MemberType NoteProperty -Name IsNetworkDrive -Value $false -PassThru
+
+        # Check if paths are network drives
+        foreach ($currentRequiredDrive in $requiredDrive)
+        {
+            if ($currentRequiredDrive -match "^\\\\.+$")
+            {
+                $currentRequiredDrive.IsNetworkDrive = $true
+            }
+        }
 
         # Get the disk resources that are available (not assigned to a cluster role)
         $availableStorage = Get-CimInstance -Namespace 'root/MSCluster' -ClassName 'MSCluster_ResourceGroup' -Filter "Name = 'Available Storage'" |
@@ -1154,15 +1164,17 @@ function Set-TargetResource
         $failoverClusterDisks = $failoverClusterDisks | Sort-Object -Unique
 
         # Ensure we mapped all required drives
-        $unMappedRequiredDrives = $requiredDrive | Where-Object -FilterScript { $_.IsMapped -eq $false } | Measure-Object
+        $unMappedRequiredDrives = $requiredDrive | Where-Object -FilterScript { $_.IsMapped -eq $false -and $_.IsNetworkDrive -eq $false } | Measure-Object
         if ($unMappedRequiredDrives.Count -gt 0)
         {
             $errorMessage = $script:localizedData.FailoverClusterDiskMappingError -f ($failoverClusterDisks -join '; ')
             New-InvalidResultException -Message $errorMessage
         }
 
-        # Add the cluster disks as a setup argument
-        $setupArguments['FailoverClusterDisks'] = ($failoverClusterDisks | Sort-Object)
+        if ($failoverClusterDisks -and $failoverClusterDisks.Count -gt 0) {
+            # Add the cluster disks as a setup argument
+            $setupArguments['FailoverClusterDisks'] = ($failoverClusterDisks | Sort-Object)
+        }
     }
 
     # Determine network mapping for specific cluster installation types

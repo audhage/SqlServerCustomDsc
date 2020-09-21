@@ -43,7 +43,7 @@ else
 #>
 Configuration DSC_SqlProtocolTcpIp_ListenOnSpecificIpAddress_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {

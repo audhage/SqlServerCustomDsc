@@ -41,7 +41,7 @@ else
 #>
 Configuration DSC_SqlDatabasePermission_Grant_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -72,7 +72,7 @@ Configuration DSC_SqlDatabasePermission_Grant_Config
 #>
 Configuration DSC_SqlDatabasePermission_RemoveGrant_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -103,7 +103,7 @@ Configuration DSC_SqlDatabasePermission_RemoveGrant_Config
 #>
 Configuration DSC_SqlDatabasePermission_Deny_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -134,7 +134,7 @@ Configuration DSC_SqlDatabasePermission_Deny_Config
 #>
 Configuration DSC_SqlDatabasePermission_RemoveDeny_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -168,7 +168,7 @@ Configuration DSC_SqlDatabasePermission_RemoveDeny_Config
 #>
 Configuration DSC_SqlDatabasePermission_GrantGuest_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -201,7 +201,7 @@ Configuration DSC_SqlDatabasePermission_GrantGuest_Config
 #>
 Configuration DSC_SqlDatabasePermission_RemoveGrantGuest_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -234,7 +234,7 @@ Configuration DSC_SqlDatabasePermission_RemoveGrantGuest_Config
 #>
 Configuration DSC_SqlDatabasePermission_GrantPublic_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -267,7 +267,7 @@ Configuration DSC_SqlDatabasePermission_GrantPublic_Config
 #>
 Configuration DSC_SqlDatabasePermission_RemoveGrantPublic_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {

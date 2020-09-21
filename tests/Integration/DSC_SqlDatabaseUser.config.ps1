@@ -62,7 +62,7 @@ else
 #>
 Configuration DSC_SqlDatabaseUser_AddDatabaseUser1_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -89,7 +89,7 @@ Configuration DSC_SqlDatabaseUser_AddDatabaseUser1_Config
 #>
 Configuration DSC_SqlDatabaseUser_AddDatabaseUser2_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -116,7 +116,7 @@ Configuration DSC_SqlDatabaseUser_AddDatabaseUser2_Config
 #>
 Configuration DSC_SqlDatabaseUser_AddDatabaseUser3_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -143,7 +143,7 @@ Configuration DSC_SqlDatabaseUser_AddDatabaseUser3_Config
 #>
 Configuration DSC_SqlDatabaseUser_AddDatabaseUser4_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -170,7 +170,7 @@ Configuration DSC_SqlDatabaseUser_AddDatabaseUser4_Config
 #>
 Configuration DSC_SqlDatabaseUser_RecreateDatabaseUser4_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -197,7 +197,7 @@ Configuration DSC_SqlDatabaseUser_RecreateDatabaseUser4_Config
 #>
 Configuration DSC_SqlDatabaseUser_RemoveDatabaseUser4_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -222,7 +222,7 @@ Configuration DSC_SqlDatabaseUser_RemoveDatabaseUser4_Config
 #>
 Configuration DSC_SqlDatabaseUser_AddDatabaseUser5_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -250,7 +250,7 @@ END
 USE [$(DatabaseName)];
 CREATE CERTIFICATE [$(CertificateName)]
     ENCRYPTION BY PASSWORD = 'P@ssw0rd1'
-    WITH SUBJECT = 'SqlServerDsc Integration Test';
+    WITH SUBJECT = 'SqlServerCustomDsc Integration Test';
 '@
 
             QueryTimeout = 30
@@ -287,7 +287,7 @@ CREATE CERTIFICATE [$(CertificateName)]
 #>
 Configuration DSC_SqlDatabaseUser_AddDatabaseUser6_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {

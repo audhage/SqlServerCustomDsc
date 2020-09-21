@@ -5,7 +5,7 @@ if (-not (Test-BuildCategory -Type 'Integration' -Category @('Integration_SQL201
     return
 }
 
-$script:dscModuleName = 'SqlServerDsc'
+$script:dscModuleName = 'SqlServerCustomDsc'
 $script:dscResourceFriendlyName = 'SqlEndpoint'
 $script:dscResourceName = "DSC_$($script:dscResourceFriendlyName)"
 

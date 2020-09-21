@@ -71,7 +71,7 @@ Configuration DSC_SqlReplication_Prerequisites_Config
 #>
 Configuration DSC_SqlReplication_AddDistributor_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -108,7 +108,7 @@ Configuration DSC_SqlReplication_AddDistributor_Config
 #>
 Configuration DSC_SqlReplication_AddPublisher_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -151,7 +151,7 @@ Configuration DSC_SqlReplication_AddPublisher_Config
 #>
 Configuration DSC_SqlReplication_RemovePublisher_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -184,7 +184,7 @@ Configuration DSC_SqlReplication_RemovePublisher_Config
 #>
 Configuration DSC_SqlReplication_RemoveDistributor_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -212,7 +212,7 @@ Configuration DSC_SqlReplication_RemoveDistributor_Config
 #>
 Configuration DSC_SqlReplication_Cleanup_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
     Import-DscResource -ModuleName 'PSDscResources' -ModuleVersion '2.12.0.0'
 
     node $AllNodes.NodeName

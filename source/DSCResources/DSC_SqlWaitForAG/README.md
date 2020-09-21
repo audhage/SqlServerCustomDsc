@@ -24,6 +24,6 @@ cluster role/group in the cluster.
   according to the value of `RetryIntervalSec` before returning. There is
   currently no check to validate that the Availability Group was successfully
   created and is in a ready state. A workaround is instead use [`WaitForAny`](https://docs.microsoft.com/en-us/powershell/scripting/dsc/reference/resources/windows/waitforanyresource?view=powershell-7)
-  resource. This is being tracked in [issue #1569](https://github.com/dsccommunity/SqlServerDsc/issues/1569).
+  resource. This is being tracked in [issue #1569](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1569).
 
-All issues are not listed here, see [here for all open issues](https://github.com/dsccommunity/SqlServerDsc/issues?q=is%3Aissue+is%3Aopen+in%3Atitle+SqlWaitForAG).
+All issues are not listed here, see [here for all open issues](https://github.com/dsccommunity/SqlServerCustomDsc/issues?q=is%3Aissue+is%3Aopen+in%3Atitle+SqlWaitForAG).

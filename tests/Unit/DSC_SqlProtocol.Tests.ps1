@@ -3,7 +3,7 @@
         Automated unit test for DSC_SqlProtocol DSC resource.
 #>
 
-$script:dscModuleName = 'SqlServerDsc'
+$script:dscModuleName = 'SqlServerCustomDsc'
 $script:dscResourceName = 'DSC_SqlProtocol'
 
 function Invoke-TestSetup

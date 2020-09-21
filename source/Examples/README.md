@@ -1,6 +1,6 @@
 # Examples
 
-This will help to understand how to setup certain scenarios with SqlServerDsc
+This will help to understand how to setup certain scenarios with SqlServerCustomDsc
 resource module.
 
 ## Resource examples
@@ -145,9 +145,9 @@ they could improve you configuration, for example the resource xClusterQuorum.
 #### Install SQL Server Failover Cluster Instance
 
 The example shows how to
-[install the first SQL Server Failover Cluster node for a named instance](https://github.com/PowerShell/SqlServerDsc/blob/dev/Examples/Resources/SqlSetup/4-InstallNamedInstanceInFailoverClusterFirstNode.ps1).
+[install the first SQL Server Failover Cluster node for a named instance](https://github.com/PowerShell/SqlServerCustomDsc/blob/dev/Examples/Resources/SqlSetup/4-InstallNamedInstanceInFailoverClusterFirstNode.ps1).
 And this example shows how to
-[install the second SQL Server Failover Cluster node for a named instance](https://github.com/PowerShell/SqlServerDsc/blob/dev/Examples/Resources/SqlSetup/5-InstallNamedInstanceInFailoverClusterSecondNode.ps1).
+[install the second SQL Server Failover Cluster node for a named instance](https://github.com/PowerShell/SqlServerCustomDsc/blob/dev/Examples/Resources/SqlSetup/5-InstallNamedInstanceInFailoverClusterSecondNode.ps1).
 
 >**Note:** Make sure any user accounts you use in the configuration exist in
 >Active Directory and that they have the correct permission.
@@ -177,27 +177,27 @@ to the failover cluster needed for SQL Server AlwaysOn Availability Groups.
 ##### Install SQL Server on the primary node
 
 The example shows how to
-[install a SQL Server named instance on a single server](https://github.com/PowerShell/SqlServerDsc/blob/dev/Examples/Resources/SqlSetup/2-InstallNamedInstanceSingleServer.ps1)
+[install a SQL Server named instance on a single server](https://github.com/PowerShell/SqlServerCustomDsc/blob/dev/Examples/Resources/SqlSetup/2-InstallNamedInstanceSingleServer.ps1)
 which will be used as the primary replica node in the SQL Server AlwaysOn
 Availability Group.
 
 ##### Install SQL Server on the secondary node
 
 The example shows how to
-[install a SQL Server named instance on a single server](https://github.com/PowerShell/SqlServerDsc/blob/dev/Examples/Resources/SqlSetup/2-InstallNamedInstanceSingleServer.ps1)
+[install a SQL Server named instance on a single server](https://github.com/PowerShell/SqlServerCustomDsc/blob/dev/Examples/Resources/SqlSetup/2-InstallNamedInstanceSingleServer.ps1)
 which will be used as the secondary replica node in the SQL Server AlwaysOn
 Availability Group.
 
 #### Enable AlwaysOn on both primary and secondary replica
 
 AlwaysOn must be enabled on both the primary and secondary replica, and the example
-[Enable AlwaysOn](https://github.com/PowerShell/SqlServerDsc/blob/dev/Examples/Resources/SqlAlwaysOnService/1-EnableAlwaysOn.ps1)
+[Enable AlwaysOn](https://github.com/PowerShell/SqlServerCustomDsc/blob/dev/Examples/Resources/SqlAlwaysOnService/1-EnableAlwaysOn.ps1)
 shows how to enable it (which requires that a working Failover Cluster is
 present on the node).
 
 #### Configure SQL Server AlwaysOn Availability Group
 
-Once AlwaysOn is enabled we can create the Availability Group. The example [Create Availability Group](https://github.com/PowerShell/SqlServerDsc/blob/dev/Examples/Resources/SqlAGReplica/1-CreateAvailabilityGroupReplica.ps1)
+Once AlwaysOn is enabled we can create the Availability Group. The example [Create Availability Group](https://github.com/PowerShell/SqlServerCustomDsc/blob/dev/Examples/Resources/SqlAGReplica/1-CreateAvailabilityGroupReplica.ps1)
 shows how to create the Availability Group on the primary replica and join the
 Availability Group on the secondary replica.
 

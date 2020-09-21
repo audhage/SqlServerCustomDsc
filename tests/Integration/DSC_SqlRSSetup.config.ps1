@@ -46,7 +46,7 @@ else
 #>
 Configuration DSC_SqlRSSetup_InstallReportingServicesAsUser_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {

@@ -47,7 +47,7 @@ else
 #>
 Configuration DSC_SqlDatabaseMail_Add_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -91,7 +91,7 @@ Configuration DSC_SqlDatabaseMail_Add_Config
 #>
 Configuration DSC_SqlDatabaseMail_Remove_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {

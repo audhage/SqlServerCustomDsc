@@ -35,7 +35,7 @@ else
 #>
 Configuration DSC_SqlProtocol_DisableNamedPipes_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -58,7 +58,7 @@ Configuration DSC_SqlProtocol_DisableNamedPipes_Config
 #>
 Configuration DSC_SqlProtocol_EnableNamedPipes_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {

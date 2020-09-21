@@ -42,6 +42,6 @@ used, then the installation will run as SYSTEM.
 
 ## Known issues
 
-* [SqlRSSetup: Will always make an edition upgrade](https://github.com/dsccommunity/SqlServerDsc/issues/1311)
+* [SqlRSSetup: Will always make an edition upgrade](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1311)
 
-All issues are not listed here, see [here for all open issues](https://github.com/dsccommunity/SqlServerDsc/issues?q=is%3Aissue+is%3Aopen+in%3Atitle+SqlRSSetup).
+All issues are not listed here, see [here for all open issues](https://github.com/dsccommunity/SqlServerCustomDsc/issues?q=is%3Aissue+is%3Aopen+in%3Atitle+SqlRSSetup).

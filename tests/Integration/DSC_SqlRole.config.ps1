@@ -46,7 +46,7 @@ else
 #>
 Configuration DSC_SqlRole_AddRole1_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -73,7 +73,7 @@ Configuration DSC_SqlRole_AddRole1_Config
 #>
 Configuration DSC_SqlRole_AddRole2_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -97,7 +97,7 @@ Configuration DSC_SqlRole_AddRole2_Config
 #>
 Configuration DSC_SqlRole_AddRole3_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -128,7 +128,7 @@ Configuration DSC_SqlRole_AddRole3_Config
 #>
 Configuration DSC_SqlRole_Role1_ChangeMembers_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -156,7 +156,7 @@ Configuration DSC_SqlRole_Role1_ChangeMembers_Config
 #>
 Configuration DSC_SqlRole_Role2_AddMembers_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -185,7 +185,7 @@ Configuration DSC_SqlRole_Role2_AddMembers_Config
 #>
 Configuration DSC_SqlRole_Role2_RemoveMembers_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -213,7 +213,7 @@ Configuration DSC_SqlRole_Role2_RemoveMembers_Config
 #>
 Configuration DSC_SqlRole_RemoveRole3_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -237,7 +237,7 @@ Configuration DSC_SqlRole_RemoveRole3_Config
 #>
 Configuration DSC_SqlRole_AddNestedRole_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     Node $AllNodes.NodeName
     {
@@ -283,7 +283,7 @@ Configuration DSC_SqlRole_AddNestedRole_Config
 #>
 Configuration DSC_SqlRole_RemoveNestedRole_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     Node $AllNodes.NodeName
     {

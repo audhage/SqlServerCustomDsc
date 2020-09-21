@@ -3,7 +3,7 @@
         Automated unit test for DSC_DSC_SqlDatabaseObjectPermission DSC resource.
 #>
 
-$script:dscModuleName = 'SqlServerDsc'
+$script:dscModuleName = 'SqlServerCustomDsc'
 $script:dscResourceName = 'DSC_SqlDatabaseObjectPermission'
 
 function Invoke-TestSetup

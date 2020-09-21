@@ -1,4 +1,4 @@
-# Integration tests for SqlServerDsc
+# Integration tests for SqlServerCustomDsc
 
 For it to be easier to write integration tests for a resource that depends on
 other resources, this will list the run order of the integration tests that keep
@@ -325,7 +325,7 @@ tests to use.
 
 Name | Subject | Password
 --- | --- | ---
-Certificate1 | SqlServerDsc Integration Test | P@ssw0rd1
+Certificate1 | SqlServerCustomDsc Integration Test | P@ssw0rd1
 
 The integration test will leave this database asymmetric key for other integration
 tests to use.

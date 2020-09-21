@@ -13,7 +13,7 @@ Configuration Example
         $ServiceAccountCredential
     )
 
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     Node localhost
     {

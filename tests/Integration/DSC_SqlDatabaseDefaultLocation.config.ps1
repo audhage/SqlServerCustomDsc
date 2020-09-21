@@ -44,7 +44,7 @@ else
 Configuration DSC_SqlDatabaseDefaultLocation_Data_Config
 {
     Import-DscResource -ModuleName 'PSDesiredStateConfiguration'
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -81,7 +81,7 @@ Configuration DSC_SqlDatabaseDefaultLocation_Data_Config
 Configuration DSC_SqlDatabaseDefaultLocation_Log_Config
 {
     Import-DscResource -ModuleName 'PSDesiredStateConfiguration'
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -118,7 +118,7 @@ Configuration DSC_SqlDatabaseDefaultLocation_Log_Config
 Configuration DSC_SqlDatabaseDefaultLocation_Backup_Config
 {
     Import-DscResource -ModuleName 'PSDesiredStateConfiguration'
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {

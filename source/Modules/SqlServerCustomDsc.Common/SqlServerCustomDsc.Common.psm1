@@ -511,7 +511,7 @@ function Connect-SQL
     $sqlConnectionContext = $sqlServerObject.ConnectionContext
     $sqlConnectionContext.ServerInstance = $databaseEngineInstance
     $sqlConnectionContext.StatementTimeout = $StatementTimeout
-    $sqlConnectionContext.ApplicationName = 'SqlServerDsc'
+    $sqlConnectionContext.ApplicationName = 'SqlServerCustomDsc'
 
     if ($PSCmdlet.ParameterSetName -eq 'SqlServer')
     {

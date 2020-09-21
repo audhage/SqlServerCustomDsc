@@ -1,5 +1,5 @@
 @{
-    RootModule = 'SqlServerDsc.Common.psm1'
+    RootModule = 'SqlServerCustomDsc.Common.psm1'
 
     # Version number of this module.
     ModuleVersion = '1.0.0'
@@ -17,7 +17,7 @@
     Copyright = 'Copyright the DSC Community contributors. All rights reserved.'
 
     # Description of the functionality provided by this module
-    Description = 'Functions used by the DSC resources in SqlServerDsc.'
+    Description = 'Functions used by the DSC resources in SqlServerCustomDsc.'
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
     FunctionsToExport = @(

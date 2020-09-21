@@ -1,4 +1,4 @@
-# Change log for SqlServerDsc
+# Change log for SqlServerCustomDsc
 
 The format is based on and uses the types of changes according to [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -7,23 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- SqlServerDsc
+- SqlServerCustomDsc
   - Updated code formatting using latest release of PSScriptAnalyzer.
   - The URLs in the CHANGELOG.md that was pointing to issues is now
     referencing the new repository name and URL.
-- SqlServerDsc.Common
+- SqlServerCustomDsc.Common
   - The helper function `Get-SqlInstanceMajorVersion` no longer have a default
     value for parameter **InstanceName** since the parameter is mandatory
     and it was never used.
 - SqlReplication
   - The resource are now using the helper function `Get-SqlInstanceMajorVersion`
-    ([issue #1408](https://github.com/dsccommunity/SqlServerDsc/issues/1408)).
+    ([issue #1408](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1408)).
 
 ## [14.2.1] - 2020-08-14
 
 ### Changed
 
-- SqlServerDsc
+- SqlServerCustomDsc
   - Document changes in the file `build.yml`.
   - The regular expression for `major-version-bump-message` in the file
     `GitVersion.yml` was changed to only raise major version when the
@@ -32,27 +32,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - SqlSetup
   - Duplicate function Get-SqlMajorVersion was removed and instead the
     helper function `Get-FilePathMajorVersion` from the helper module
-    SqlServerDsc.Common is used ([issue #1178](https://github.com/dsccommunity/SqlServerDsc/issues/1178)).
+    SqlServerCustomDsc.Common is used ([issue #1178](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1178)).
 - SqlWindowsFirewall
   - Duplicate function Get-SqlMajorVersion was removed and instead the
     helper function `Get-FilePathMajorVersion` from the helper module
-    SqlServerDsc.Common is used ([issue #1178](https://github.com/dsccommunity/SqlServerDsc/issues/1178)).
-- SqlServerDsc.Common
+    SqlServerCustomDsc.Common is used ([issue #1178](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1178)).
+- SqlServerCustomDsc.Common
   - Function `Get-FilePathMajorVersion` was added. The function `Get-SqlMajorVersion`
     from the resources _SqlSetup_ and _SqlWindowsFirewall_ was moved and
-    renamed without any functional changes ([issue #1178](https://github.com/dsccommunity/SqlServerDsc/issues/1178)).
+    renamed without any functional changes ([issue #1178](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1178)).
 
 ### Fixed
 
-- SqlServerDsc
+- SqlServerCustomDsc
   - Removed helper functions that was moved to the module _DscResource.Common_.
     DSC resources using those functions are using them from the module
     _DscResource.Common_.
 - SqlDatabaseObjectPermission
-  - Fixed method invocation failed because of missing `Where()` method ([issue #1600](https://github.com/dsccommunity/SqlServerDsc/issues/1600)).
+  - Fixed method invocation failed because of missing `Where()` method ([issue #1600](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1600)).
     - New integration tests to verify scenarios when passing a single permission.
   - To enforce a scenario where a permission must be changed from `'GrantWithGrant'`
-    to `'Grant'` a new parameter **Force** was added ([issue #1602](https://github.com/dsccommunity/SqlServerDsc/issues/1602)).
+    to `'Grant'` a new parameter **Force** was added ([issue #1602](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1602)).
     The parameter **Force** is used to enforce the desired state in those
     scenarios where revocations must be performed to enforce the desired
     state, even if that encompasses cascading revocations. If parameter
@@ -65,51 +65,51 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - The example `4-InstallNamedInstanceInFailoverClusterFirstNode.ps1` was
     updated to no longer reference the issue #405 and issue #444 in the
     comment-based help. The issues was fixed a while back and _SqlSetup_
-    now supports the built-in parameter `PsDscRunAsCredential` ([issue #975](https://github.com/dsccommunity/SqlServerDsc/issues/975)).
+    now supports the built-in parameter `PsDscRunAsCredential` ([issue #975](https://github.com/dsccommunity/SqlServerCustomDsc/issues/975)).
 
 ## [14.2.0] - 2020-07-23
 
 ### Fixed
 
-- SqlServerDsc
+- SqlServerCustomDsc
   - Updated comment-based help according to style guideline throughout
-    ([issue #1500](https://github.com/dsccommunity/SqlServerDsc/issues/1500)).
+    ([issue #1500](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1500)).
   - Using Codecov carry forward flag because we are not sending code coverage
     report on each commit.
 - CommonTestHelper
   - Minor style changes.
 - SqlSetup
   - Updated the documentation with the currently supported features
-    ([issue #1566](https://github.com/dsccommunity/SqlServerDsc/issues/1566)).
+    ([issue #1566](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1566)).
   - Update documentation around permissions in directory tree for Analysis Services
-    ([issue #1443](https://github.com/dsccommunity/SqlServerDsc/issues/1443)).
+    ([issue #1443](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1443)).
   - Documented that on certain operating systems, when using least privilege
     for the service account, the security policy setting _Network access:_
     _Restrict clients allowed to make remote calls to SAM_ can result in
     a access denied error during install of the _SQL Server Database Engine_
-    ([issue #1559](https://github.com/dsccommunity/SqlServerDsc/issues/1559)).
+    ([issue #1559](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1559)).
 - SqlRole
   - Fixed the `ServerName` parameter to work with default value of
-    `$env:COMPUTERNAME` ([issue #1592](https://github.com/dsccommunity/SqlServerDsc/issues/1592)).
+    `$env:COMPUTERNAME` ([issue #1592](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1592)).
 
 ## [14.1.0] - 2020-07-06
 
 ### Removed
 
-- SqlServerDsc
+- SqlServerCustomDsc
   - Remove the file `.github/CONTRIBUTION.md` as it no longer filled any
     purpose as GitHub will find the CONTRIBUTION.md in the root folder
-    directly now ([issue #1227](https://github.com/dsccommunity/SqlServerDsc/issues/1227)).
+    directly now ([issue #1227](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1227)).
 
 ### Changed
 
-- SqlServerDsc
+- SqlServerCustomDsc
   - Updated DSC resources parameter documentation.
 
 ### Fixed
 
-- SqlServerDsc
-  - Update resource parameter documentation ([issue #1568](https://github.com/dsccommunity/SqlServerDsc/issues/1568)).
+- SqlServerCustomDsc
+  - Update resource parameter documentation ([issue #1568](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1568)).
     - Remove italic and inline code-block markdown code in documentation.
   - Documentation is now published to the GitHub Wiki.
     - Deploy task was updated with the correct name.
@@ -118,59 +118,59 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Updated task list in the PULL_REQUEST_TEMPLATE.md.
   - The documentation in CONTRIBUTING.md has been somewhat updated.
   - Update documentation around design pattern for accounts that does not
-    use passwords ([issue #378](https://github.com/dsccommunity/SqlServerDsc/issues/378))
-    and ([issue #1230](https://github.com/dsccommunity/SqlServerDsc/issues/1230)).
+    use passwords ([issue #378](https://github.com/dsccommunity/SqlServerCustomDsc/issues/378))
+    and ([issue #1230](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1230)).
   - Updating the Integration Test README.md to better explain what the
-    integration tests for SqlSetup, SqlRSSetup, and SqlRS does ([issue #1315](https://github.com/dsccommunity/SqlServerDsc/issues/1315)).
-- SqlServerDsc.Common
+    integration tests for SqlSetup, SqlRSSetup, and SqlRS does ([issue #1315](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1315)).
+- SqlServerCustomDsc.Common
   - Connect-UncPath
     - Now support to authenticate using both NetBIOS domain and Fully Qualified
-      Domain Name (FQDN) ([issue #1223](https://github.com/dsccommunity/SqlServerDsc/issues/1223)).
+      Domain Name (FQDN) ([issue #1223](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1223)).
   - Connect-SQL
     - Now support to authenticate using both NetBIOS domain and Fully Qualified
-      Domain Name (FQDN) ([issue #1223](https://github.com/dsccommunity/SqlServerDsc/issues/1223)).
+      Domain Name (FQDN) ([issue #1223](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1223)).
   - Connect-SQLAnalysis
     - Now support to authenticate using both NetBIOS domain and Fully Qualified
-      Domain Name (FQDN) ([issue #1223](https://github.com/dsccommunity/SqlServerDsc/issues/1223)).
+      Domain Name (FQDN) ([issue #1223](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1223)).
 - SqlAGReplica
   - Update documentation with a requirement for SqlServer in certain circumstances
-    ([issue #1033](https://github.com/dsccommunity/SqlServerDsc/issues/1033)).
+    ([issue #1033](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1033)).
 - SqlRSSetup
   - There was a typo in the error message that was thrown when not passing
-    either the `Edition` or `ProductKey` that could be misleading ([issue #1386](https://github.com/dsccommunity/SqlServerDsc/issues/1386)).
+    either the `Edition` or `ProductKey` that could be misleading ([issue #1386](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1386)).
   - Updated the parameter descriptions for the parameters `Edition` and
-    `ProductKey` that they are mutually exclusive ([issue #1386](https://github.com/dsccommunity/SqlServerDsc/issues/1386)).
+    `ProductKey` that they are mutually exclusive ([issue #1386](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1386)).
 - SqlWindowsFirewall
   - Now support to authenticate using both NetBIOS domain and Fully Qualified
-    Domain Name (FQDN) ([issue #1223](https://github.com/dsccommunity/SqlServerDsc/issues/1223)).
+    Domain Name (FQDN) ([issue #1223](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1223)).
 - SqlDatabaseObjectPermission
   - Since the task that publish Wiki content was updated to correctly handle
     embedded instances the duplicate documentation was removed from the
     resource README.md, and some was added to the schema MOF parameter
-    descriptions ([issue #1580](https://github.com/dsccommunity/SqlServerDsc/issues/1580)).
+    descriptions ([issue #1580](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1580)).
 - SqlScript
-  - Fixed the URLs in the parameter documentation ([issue #1582](https://github.com/dsccommunity/SqlServerDsc/issues/1582)).
+  - Fixed the URLs in the parameter documentation ([issue #1582](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1582)).
 - SqlScriptQuery
-  - Fixed the URLs in the parameter documentation ([issue #1583](https://github.com/dsccommunity/SqlServerDsc/issues/1583)).
+  - Fixed the URLs in the parameter documentation ([issue #1583](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1583)).
 
 ### Added
 
 - SqlScript
-  - Added the DisableVariables parameter ([issue #1422](https://github.com/dsccommunity/SqlServerDsc/issues/1422)).
+  - Added the DisableVariables parameter ([issue #1422](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1422)).
 - SqlScriptQuery
-  - Added the DisableVariables parameter ([issue #1422](https://github.com/dsccommunity/SqlServerDsc/issues/1422)).
+  - Added the DisableVariables parameter ([issue #1422](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1422)).
 
 ## [14.0.0] - 2020-06-12
 
 ### Remove
 
-- SqlServerDsc
+- SqlServerCustomDsc
   - BREAKING CHANGE: Since the operating system Windows Server 2008 R2 and
     the product SQL Server 2008 R2 has gone end-of-life the DSC resources
     will no longer try to maintain compatibility with them. Moving forward,
     and including this release, there may be code changes that will break
     the resource on Windows Server 2008 R2 or with SQL Server 2008 R2
-    ([issue #1514](https://github.com/dsccommunity/SqlServerDsc/issues/1514)).
+    ([issue #1514](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1514)).
 
 ### Deprecated
 
@@ -180,13 +180,13 @@ in a future release.
 
 - SqlDatabaseOwner
   - This resource is now deprecated. The functionality is now covered by
-    a property in the resource _SqlDatabase_ ([issue #966](https://github.com/dsccommunity/SqlServerDsc/issues/966)).
+    a property in the resource _SqlDatabase_ ([issue #966](https://github.com/dsccommunity/SqlServerCustomDsc/issues/966)).
 - SqlDatabaseRecoveryModel
   - This resource is now deprecated. The functionality is now covered by
-    a property in the resource _SqlDatabase_ ([issue #967](https://github.com/dsccommunity/SqlServerDsc/issues/967)).
+    a property in the resource _SqlDatabase_ ([issue #967](https://github.com/dsccommunity/SqlServerCustomDsc/issues/967)).
 - SqlServerEndpointState
   - This resource is now deprecated. The functionality is covered by a
-    property in the resource _SqlEndpoint_ ([issue #968](https://github.com/dsccommunity/SqlServerDsc/issues/968)).
+    property in the resource _SqlEndpoint_ ([issue #968](https://github.com/dsccommunity/SqlServerCustomDsc/issues/968)).
 - SqlServerNetwork
   - This resource is now deprecated. The functionality is now covered by
     the resources _SqlProtocol_ and _SqlProtocolTcpIp_.
@@ -194,16 +194,16 @@ in a future release.
 ### Added
 
 - SqlSetup
-  - Added support for major version upgrade ([issue #1561](https://github.com/dsccommunity/SqlServerDsc/issues/1561)).
-- SqlServerDsc
-  - Added new resource SqlProtocol ([issue #1377](https://github.com/dsccommunity/SqlServerDsc/issues/1377)).
-  - Added new resource SqlProtocolTcpIp ([issue #1378](https://github.com/dsccommunity/SqlServerDsc/issues/1378)).
-  - Added new resource SqlDatabaseObjectPermission ([issue #1119](https://github.com/dsccommunity/SqlServerDsc/issues/1119)).
+  - Added support for major version upgrade ([issue #1561](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1561)).
+- SqlServerCustomDsc
+  - Added new resource SqlProtocol ([issue #1377](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1377)).
+  - Added new resource SqlProtocolTcpIp ([issue #1378](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1378)).
+  - Added new resource SqlDatabaseObjectPermission ([issue #1119](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1119)).
   - Fixing a problem with the latest ModuleBuild 1.7.0 that breaks the CI
     pipeline.
   - Prepare repository for auto-documentation by adding README.md to each
     resource folder with the content from the root README.md.
-- SqlServerDsc.Common
+- SqlServerCustomDsc.Common
   - Added function `Import-Assembly` that can help import an assembly
     into the PowerShell session.
   - Prepared unit tests to support Pester 5 so a minimal conversation
@@ -223,16 +223,16 @@ in a future release.
 - SqlSetup
   - A read only property `IsClustered` was added that can be used to determine
     if the instance is clustered.
-  - Added the properties `NpEnabled` and `TcpEnabled` ([issue #1161](https://github.com/dsccommunity/SqlServerDsc/issues/1161)).
-  - Added the property `UseEnglish` ([issue #1473](https://github.com/dsccommunity/SqlServerDsc/issues/1473)).
+  - Added the properties `NpEnabled` and `TcpEnabled` ([issue #1161](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1161)).
+  - Added the property `UseEnglish` ([issue #1473](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1473)).
 - SqlReplication
-  - Add integration tests ([issue #755](https://github.com/dsccommunity/SqlServerDsc/issues/755).
+  - Add integration tests ([issue #755](https://github.com/dsccommunity/SqlServerCustomDsc/issues/755).
 - SqlDatabase
   - The property `OwnerName` was added.
 - SqlDatabasePermission
   - Now possible to change permissions for database user-defined roles
-    (e.g. public) and database application roles ([issue #1498](https://github.com/dsccommunity/SqlServerDsc/issues/1498).
-- SqlServerDsc.Common
+    (e.g. public) and database application roles ([issue #1498](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1498).
+- SqlServerCustomDsc.Common
   - The helper function `Restart-SqlService` was improved to handle Failover
     Clusters better. Now the SQL Server service will only be taken offline
     and back online again if the service is online to begin with.
@@ -255,8 +255,8 @@ in a future release.
 
 ### Changed
 
-- SqlServerDsc
-  - BREAKING CHANGE: Some DSC resources have been renamed ([issue #1540](https://github.com/dsccommunity/SqlServerDsc/issues/1540)).
+- SqlServerCustomDsc
+  - BREAKING CHANGE: Some DSC resources have been renamed ([issue #1540](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1540)).
     - `SqlServerConfiguration` was renamed to `SqlConfiguration`.
     - `SqlServerDatabaseMail` was renamed to `SqlDatabaseMail`.
     - `SqlServerEndpoint` was renamed to `SqlEndpoint`.
@@ -270,19 +270,19 @@ in a future release.
     - `SqlServerReplication` was renamed to `SqlReplication`.
     - `SqlServerRole` was renamed to `SqlRole`.
     - `SqlServerSecureConnection` was renamed to `SqlSecureConnection`.
-  - Changed all resource prefixes from `MSFT_` to `DSC_` ([issue #1496](https://github.com/dsccommunity/SqlServerDsc/issues/1496)).
+  - Changed all resource prefixes from `MSFT_` to `DSC_` ([issue #1496](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1496)).
     _Deprecated resource has not changed prefix._
   - All resources are now using the common module DscResource.Common.
   - When a PR is labelled with 'ready for merge' it is no longer being
     marked as stale if the PR is not merged for 30 days (for example it is
-    dependent on something else) ([issue #1504](https://github.com/dsccommunity/SqlServerDsc/issues/1504)).
+    dependent on something else) ([issue #1504](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1504)).
   - Updated the CI pipeline to use latest version of the module ModuleBuilder.
   - Changed to use the property `NuGetVersionV2` from GitVersion in the
     CI pipeline.
   - The unit tests now run on PowerShell 7 to optimize the total run time.
-- SqlServerDsc.Common
+- SqlServerCustomDsc.Common
   - The helper function `Invoke-InstallationMediaCopy` was changed to
-    handle a breaking change in PowerShell 7 ([issue #1530](https://github.com/dsccommunity/SqlServerDsc/issues/1530)).
+    handle a breaking change in PowerShell 7 ([issue #1530](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1530)).
   - Removed the local helper function `Set-PSModulePath` as it was
     implemented in the module DscResource.Common.
 - CommonTestHelper
@@ -290,11 +290,11 @@ in a future release.
     to install the dependent module `PSPKI` through `RequiredModules.psd1`.
 - SqlAlwaysOnService
   - BREAKING CHANGE: The parameter `ServerName` is now non-mandatory and
-    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerDsc/issues/319)).
+    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerCustomDsc/issues/319)).
   - Normalize parameter descriptive text for default values.
 - SqlDatabase
   - BREAKING CHANGE: The parameter `ServerName` is now non-mandatory and
-    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerDsc/issues/319)).
+    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerCustomDsc/issues/319)).
   - BREAKING CHANGE: The non-mandatory parameters was removed from the
     function `Get-TargetResource` since they were not needed.
   - BREAKING CHANGE: The properties `CompatibilityLevel` and `Collation`
@@ -302,55 +302,55 @@ in a future release.
   - Normalize parameter descriptive text for default values.
 - SqlDatabaseDefaultLocation
   - BREAKING CHANGE: The parameter `ServerName` is now non-mandatory and
-    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerDsc/issues/319)).
+    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerCustomDsc/issues/319)).
   - Normalize parameter descriptive text for default values.
 - SqlDatabaseOwner
   - BREAKING CHANGE: Database changed to DatabaseName for consistency with
-    other modules ([issue #1484](https://github.com/dsccommunity/SqlServerDsc/issues/1484)).
+    other modules ([issue #1484](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1484)).
 - SqlDatabasePermission
   - BREAKING CHANGE: The parameter `ServerName` is now non-mandatory and
-    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerDsc/issues/319)).
+    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerCustomDsc/issues/319)).
   - Normalize parameter descriptive text for default values.
   - BREAKING CHANGE: Database changed to DatabaseName for consistency with
-    other modules ([issue #1484](https://github.com/dsccommunity/SqlServerDsc/issues/1484)).
+    other modules ([issue #1484](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1484)).
   - BREAKING CHANGE: The resource no longer create the database user if
     it does not exist. Use the resource _SqlDatabaseUser_ to enforce that
     the database user exist in the database prior to setting permissions
-    using this resource ([issue #848](https://github.com/dsccommunity/SqlServerDsc/issues/848)).
+    using this resource ([issue #848](https://github.com/dsccommunity/SqlServerCustomDsc/issues/848)).
   - BREAKING CHANGE: The resource no longer checks if a login exist so that
     it is possible to set permissions for database users that does not
-    have a login, e.g. the database user 'guest' ([issue #1134](https://github.com/dsccommunity/SqlServerDsc/issues/1134)).
+    have a login, e.g. the database user 'guest' ([issue #1134](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1134)).
   - Updated examples.
-  - Added integration tests ([issue #741](https://github.com/dsccommunity/SqlServerDsc/issues/741)).
+  - Added integration tests ([issue #741](https://github.com/dsccommunity/SqlServerCustomDsc/issues/741)).
   - Get-TargetResource will no longer throw an exception if the database
     does not exist.
 - SqlDatabaseRecoveryModel
   - BREAKING CHANGE: The parameter `ServerName` is now non-mandatory and
-    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerDsc/issues/319)).
+    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerCustomDsc/issues/319)).
   - Normalize parameter descriptive text for default values.
 - SqlDatabaseRole
   - BREAKING CHANGE: The parameter `ServerName` is now non-mandatory and
-    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerDsc/issues/319)).
+    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerCustomDsc/issues/319)).
   - Normalize parameter descriptive text for default values.
   - BREAKING CHANGE: Database changed to DatabaseName for consistency with
-    other modules ([issue #1484](https://github.com/dsccommunity/SqlServerDsc/issues/1484)).
+    other modules ([issue #1484](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1484)).
 - SqlDatabaseUser
   - BREAKING CHANGE: The parameter `ServerName` is now non-mandatory and
-    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerDsc/issues/319)).
+    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerCustomDsc/issues/319)).
   - Normalize parameter descriptive text for default values.
 - SqlScript
   - BREAKING CHANGE: The parameter `ServerInstance` is replaced by the two
     parameters `ServerName` and `InstanceName`. The parameter `InstanceName`
     is the only one mandatory which fixes the issue that it was possible to
-    run the same script using different host names ([issue #925](https://github.com/dsccommunity/SqlServerDsc/issues/925)).
+    run the same script using different host names ([issue #925](https://github.com/dsccommunity/SqlServerCustomDsc/issues/925)).
 - SqlScriptQuery
   - BREAKING CHANGE: The parameter `ServerInstance` is replaced by the two
     parameters `ServerName` and `InstanceName`. The parameter `InstanceName`
     is the only one mandatory which fixes the issue that it was possible to
-    run the same query using different host names ([issue #925](https://github.com/dsccommunity/SqlServerDsc/issues/925)).
+    run the same query using different host names ([issue #925](https://github.com/dsccommunity/SqlServerCustomDsc/issues/925)).
 - SqlConfiguration
   - BREAKING CHANGE: The parameter `ServerName` is now non-mandatory and
-    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerDsc/issues/319)).
+    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerCustomDsc/issues/319)).
   - Normalize parameter descriptive text for default values.
 - SqlDatabaseMail
   - Normalize parameter descriptive text for default values.
@@ -360,19 +360,19 @@ in a future release.
   - Normalize parameter descriptive text for default values.
 - SqlEndpointPermission
   - BREAKING CHANGE: The parameter `ServerName` is now non-mandatory and
-    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerDsc/issues/319)).
+    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerCustomDsc/issues/319)).
   - Normalize parameter descriptive text for default values.
 - SqlLogin
   - BREAKING CHANGE: The parameter `ServerName` is now non-mandatory and
-    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerDsc/issues/319)).
+    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerCustomDsc/issues/319)).
   - Normalize parameter descriptive text for default values.
 - SqlRole
   - BREAKING CHANGE: The parameter `ServerName` is now non-mandatory and
-    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerDsc/issues/319)).
+    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerCustomDsc/issues/319)).
   - Normalize parameter descriptive text for default values.
 - SqlServiceAccount
   - BREAKING CHANGE: The parameter `ServerName` is now non-mandatory and
-    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerDsc/issues/319)).
+    defaults to `$env:COMPUTERNAME` ([issue #319](https://github.com/dsccommunity/SqlServerCustomDsc/issues/319)).
   - Normalize parameter descriptive text for default values.
 - SqlSetup
   - BREAKING CHANGE: Now if the parameter `AgtSvcStartupType` is not specified
@@ -380,19 +380,19 @@ in a future release.
     argument to `setup.exe` with a value of `Automatic` for the argument
     `AGTSVCSTARTUPTYPE`. If the parameter `AgtSvcStartupType` is not specified
     in the configuration there will be no setup argument added at all
-    ([issue #464](https://github.com/dsccommunity/SqlServerDsc/issues/464)).
+    ([issue #464](https://github.com/dsccommunity/SqlServerCustomDsc/issues/464)).
   - BREAKING CHANGE: When installing a failover cluster the cluster
     validation is no longer skipped by default. To skip cluster validation
     the configuration must opt-in by specifying the following
-    `SkipRule = 'Cluster_VerifyForErrors'` ([issue #335](https://github.com/dsccommunity/SqlServerDsc/issues/335)).
+    `SkipRule = 'Cluster_VerifyForErrors'` ([issue #335](https://github.com/dsccommunity/SqlServerCustomDsc/issues/335)).
   - BREAKING CHANGE: Now, unless the parameter `SuppressReboot` is set to
     `$true`, the node will be restarted if the setup ends with the
     [error code 3010](https://docs.microsoft.com/en-us/previous-versions/tn-archive/bb418811(v=technet.10)#server-setup-fails-with-code-3010).
-    Previously just a warning message was written ([issue #565](https://github.com/dsccommunity/SqlServerDsc/issues/565)).
+    Previously just a warning message was written ([issue #565](https://github.com/dsccommunity/SqlServerCustomDsc/issues/565)).
 
 ### Fixed
 
-- SqlServerDsc
+- SqlServerCustomDsc
   - The regular expression for `minor-version-bump-message` in the file
     `GitVersion.yml` was changed to only raise minor version when the
     commit message contain the word `add`, `adds`, `minor`, `feature`,
@@ -400,23 +400,23 @@ in a future release.
   - Now code coverage is reported to Codecov, and a codecov.yml was added.
   - Updated to support DscResource.Common v0.7.1.
   - Changed to point to CONTRIBUTING.md on master branch to avoid "404 Page not found"
-    ([issue #1508](https://github.com/dsccommunity/SqlServerDsc/issues/1508)).
+    ([issue #1508](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1508)).
 - SqlAGDatabase
   - Fixed unit tests that failed intermittently when running unit tests
-    in PowerShell 7 ([issue #1532](https://github.com/dsccommunity/SqlServerDsc/issues/1532)).
+    in PowerShell 7 ([issue #1532](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1532)).
   - Minor code style issue changes.
 - SqlAgentAlert
   - The parameter `ServerName` now throws when passing an empty string or
-    null value (part of [issue #319](https://github.com/dsccommunity/SqlServerDsc/issues/319)).
+    null value (part of [issue #319](https://github.com/dsccommunity/SqlServerCustomDsc/issues/319)).
 - SqlAgentFailsafe
   - The parameter `ServerName` now throws when passing an empty string or
-    null value (part of [issue #319](https://github.com/dsccommunity/SqlServerDsc/issues/319)).
+    null value (part of [issue #319](https://github.com/dsccommunity/SqlServerCustomDsc/issues/319)).
 - SqlAgentOperator
   - The parameter `ServerName` now throws when passing an empty string or
-    null value (part of [issue #319](https://github.com/dsccommunity/SqlServerDsc/issues/319)).
+    null value (part of [issue #319](https://github.com/dsccommunity/SqlServerCustomDsc/issues/319)).
 - SqlAlias
   - BREAKING CHANGE: The parameter `ServerName` is now non-mandatory to
-    prevent ping-pong behavior ([issue #1502](https://github.com/dsccommunity/SqlServerDsc/issues/1502)).
+    prevent ping-pong behavior ([issue #1502](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1502)).
     The `ServerName` is not returned as an empty string when the protocol is
     Named Pipes.
 - SqlDatabase
@@ -427,16 +427,16 @@ in a future release.
     and in the parameter description in the `README.md`.
 - SqlDatabaseMail
   - The parameter `ServerName` now throws when passing an empty string or
-    null value (part of [issue #319](https://github.com/dsccommunity/SqlServerDsc/issues/319)).
+    null value (part of [issue #319](https://github.com/dsccommunity/SqlServerCustomDsc/issues/319)).
 - SqlServerEndpoint
   - The parameter `ServerName` now throws when passing an empty string or
-    null value (part of [issue #319](https://github.com/dsccommunity/SqlServerDsc/issues/319)).
+    null value (part of [issue #319](https://github.com/dsccommunity/SqlServerCustomDsc/issues/319)).
 - SqlEndpoint
   - The parameter `ServerName` now throws when passing an empty string or
-    null value (part of [issue #319](https://github.com/dsccommunity/SqlServerDsc/issues/319)).
+    null value (part of [issue #319](https://github.com/dsccommunity/SqlServerCustomDsc/issues/319)).
 - SqlPermission
   - The parameter `ServerName` now throws when passing an empty string or
-    null value (part of [issue #319](https://github.com/dsccommunity/SqlServerDsc/issues/319)).
+    null value (part of [issue #319](https://github.com/dsccommunity/SqlServerCustomDsc/issues/319)).
 - SqlReplication
   - Enhanced the exception handling so it shows the inner exception error
     message that have the actual error that occurred.
@@ -453,7 +453,7 @@ in a future release.
     `PrimaryFilePath`.
   - BREAKING CHANGE: Logic that was under feature flag `DetectionSharedFeatures`
     was made the default and old logic that was used to detect shared features
-    was removed ([issue #1290](https://github.com/dsccommunity/SqlServerDsc/issues/1290)).
+    was removed ([issue #1290](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1290)).
     This was implemented because the previous implementation did not work
     fully with SQL Server 2017.
   - Much of the code was refactored into units (functions) to be easier to test.
@@ -465,24 +465,24 @@ in a future release.
 ### Added
 
 - SqlServerLogin
-  - Added `DefaultDatabase` parameter ([issue #1474](https://github.com/dsccommunity/SqlServerDsc/issues/1474)).
+  - Added `DefaultDatabase` parameter ([issue #1474](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1474)).
 
 ### Changed
 
-- SqlServerDsc
+- SqlServerCustomDsc
   - Update the CI pipeline files.
   - Only run CI pipeline on branch `master` when there are changes to files
     inside the `source` folder.
   - Replaced Microsoft-hosted agent (build image) `win1803` with `windows-2019`
-    ([issue #1466](https://github.com/dsccommunity/SqlServerDsc/issues/1466)).
+    ([issue #1466](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1466)).
 
 ### Fixed
 
 - SqlSetup
   - Refresh PowerShell drive list before attempting to resolve `setup.exe` path
-    ([issue #1482](https://github.com/dsccommunity/SqlServerDsc/issues/1482)).
+    ([issue #1482](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1482)).
 - SqlAG
-  - Fix hashtables to align with style guideline ([issue #1437](https://github.com/dsccommunity/SqlServerDsc/issues/1437)).
+  - Fix hashtables to align with style guideline ([issue #1437](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1437)).
 
 ## [13.4.0] - 2020-03-18
 
@@ -493,7 +493,7 @@ in a future release.
 
 ### Changed
 
-- SqlServerDsc
+- SqlServerCustomDsc
   - Azure Pipelines will no longer trigger on changes to just the CHANGELOG.md
     (when merging to master).
   - The deploy step is no longer run if the Azure DevOps organization URL
@@ -505,17 +505,17 @@ in a future release.
 
 ### Added
 
-- SqlServerDsc
+- SqlServerCustomDsc
   - Added continuous delivery with a new CI pipeline.
     - Update build.ps1 from latest template.
 
 ### Changed
 
-- SqlServerDsc
+- SqlServerCustomDsc
   - Add .gitattributes file to checkout file correctly with CRLF.
   - Updated .vscode/analyzersettings.psd1 file to correct use PSSA rules
     and custom rules in VS Code.
-  - Fix hashtables to align with style guideline ([issue #1437](https://github.com/dsccommunity/SqlServerDsc/issues/1437)).
+  - Fix hashtables to align with style guideline ([issue #1437](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1437)).
   - Updated most examples to remove the need for the variable `$ConfigurationData`,
     and fixed style issues.
   - Ignore commit in `GitVersion.yml` to force the correct initial release.
@@ -531,14 +531,14 @@ in a future release.
   - Update unit test to have the correct description on the `Describe`-block
     for the test of `Set-TargetResource`.
 - SqlServerRole
-  - Add support for nested role membership ([issue #1452](https://github.com/dsccommunity/SqlServerDsc/issues/1452))
+  - Add support for nested role membership ([issue #1452](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1452))
   - Removed use of case-sensitive Contains() function when evalutating role membership.
-    ([issue #1153](https://github.com/dsccommunity/SqlServerDsc/issues/1153))
-  - Refactored mocks and unit tests to increase performance. ([issue #979](https://github.com/dsccommunity/SqlServerDsc/issues/979))
+    ([issue #1153](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1153))
+  - Refactored mocks and unit tests to increase performance. ([issue #979](https://github.com/dsccommunity/SqlServerCustomDsc/issues/979))
 
 ### Fixed
 
-- SqlServerDsc
+- SqlServerCustomDsc
   - Fixed unit tests to call the function `Invoke-TestSetup` outside the
     try-block.
   - Update GitVersion.yml with the correct regular expression.
@@ -546,7 +546,7 @@ in a future release.
     DscResource.Test cannot be imported.
 - SqlAlwaysOnService
   - When failing to enable AlwaysOn the resource should now fail with an
-    error ([issue #1190](https://github.com/dsccommunity/SqlServerDsc/issues/1190)).
+    error ([issue #1190](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1190)).
 - SqlAgListener
   - Fix IPv6 addresses failing Test-TargetResource after listener creation.
 
@@ -554,26 +554,26 @@ in a future release.
 
 ### Changed
 
-- Changes to SqlServerDsc
+- Changes to SqlServerCustomDsc
   - Fix keywords to lower-case to align with guideline.
   - Fix keywords to have space before a parenthesis to align with guideline.
-  - Fix typo in SqlSetup strings ([issue #1419](https://github.com/dsccommunity/SqlServerDsc/issues/1419)).
+  - Fix typo in SqlSetup strings ([issue #1419](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1419)).
 
 ## [13.1.0.0] - 2019-08-07
 
 ### Changed
 
-- Changes to SqlServerDsc
+- Changes to SqlServerCustomDsc
   - New DSC resource SqlAgentFailsafe
-  - New DSC resource SqlDatabaseUser ([issue #846](https://github.com/dsccommunity/SqlServerDsc/issues/846)).
+  - New DSC resource SqlDatabaseUser ([issue #846](https://github.com/dsccommunity/SqlServerCustomDsc/issues/846)).
     - Adds ability to create database users with more fine-grained control,
       e.g. re-mapping of orphaned logins or a different login. Supports
       creating a user with or without login name, and database users mapped
       to a certificate or asymmetric key.
   - Changes to helper function Invoke-Query
-    - Fixes issues in [issue #1355](https://github.com/dsccommunity/SqlServerDsc/issues/1355).
+    - Fixes issues in [issue #1355](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1355).
     - Works together with Connect-SQL now.
-    - Parameters now match that of Connect-SQL ([issue #1392](https://github.com/dsccommunity/SqlServerDsc/issues/1392)).
+    - Parameters now match that of Connect-SQL ([issue #1392](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1392)).
     - Can now pass in credentials.
     - Can now pass in 'Microsoft.SqlServer.Management.Smo.Server' object.
     - Can also pipe in 'Microsoft.SqlServer.Management.Smo.Server' object.
@@ -581,7 +581,7 @@ in a future release.
     - Added default values to Invoke-Query.
     - Now it will output verbose messages of the query that is run, so it
       not as quiet of what it is doing when a user asks for verbose output
-      ([issue #1404](https://github.com/dsccommunity/SqlServerDsc/issues/1404)).
+      ([issue #1404](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1404)).
     - It is possible to redact text in the verbose output by providing
       strings in the new parameter `RedactText`.
   - Minor style fixes in unit tests.
@@ -590,58 +590,58 @@ in a future release.
     - Added additional verbose logging.
     - Connect-SQL now uses parameter sets to more intuitive evaluate that
       the correct parameters are used in different scenarios
-      ([issue #1403](https://github.com/dsccommunity/SqlServerDsc/issues/1403)).
+      ([issue #1403](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1403)).
   - Changes to helper function Connect-SQLAnalysis
-    - Parameters now match that of Connect-SQL ([issue #1392](https://github.com/dsccommunity/SqlServerDsc/issues/1392)).
+    - Parameters now match that of Connect-SQL ([issue #1392](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1392)).
   - Changes to helper function Restart-SqlService
-    - Parameters now match that of Connect-SQL ([issue #1392](https://github.com/dsccommunity/SqlServerDsc/issues/1392)).
+    - Parameters now match that of Connect-SQL ([issue #1392](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1392)).
   - Changes to helper function Restart-ReportingServicesService
-    - Parameters now match that of Connect-SQL ([issue #1392](https://github.com/dsccommunity/SqlServerDsc/issues/1392)).
+    - Parameters now match that of Connect-SQL ([issue #1392](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1392)).
   - Changes to helper function Split-FullSqlInstanceName
     - Parameters and function name changed to use correct casing.
   - Changes to helper function Get-SqlInstanceMajorVersion
-    - Parameters now match that of Connect-SQL ([issue #1392](https://github.com/dsccommunity/SqlServerDsc/issues/1392)).
+    - Parameters now match that of Connect-SQL ([issue #1392](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1392)).
   - Changes to helper function Test-LoginEffectivePermissions
-    - Parameters now match that of Connect-SQL ([issue #1392](https://github.com/dsccommunity/SqlServerDsc/issues/1392)).
+    - Parameters now match that of Connect-SQL ([issue #1392](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1392)).
   - Changes to helper function Test-AvailabilityReplicaSeedingModeAutomatic
-    - Parameters now match that of Connect-SQL ([issue #1392](https://github.com/dsccommunity/SqlServerDsc/issues/1392)).
+    - Parameters now match that of Connect-SQL ([issue #1392](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1392)).
 - Changes to SqlServerSecureConnection
-  - Forced $Thumbprint to lowercase to fix [issue #1350](https://github.com/dsccommunity/SqlServerDsc/issues/1350).
+  - Forced $Thumbprint to lowercase to fix [issue #1350](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1350).
   - Add parameter SuppressRestart with default value false.
     This allows users to suppress restarts after changes have been made.
     Changes will not take effect until the service has been restarted.
 - Changes to SqlSetup
-  - Correct minor style violation [issue #1387](https://github.com/dsccommunity/SqlServerDsc/issues/1387).
+  - Correct minor style violation [issue #1387](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1387).
 - Changes to SqlDatabase
   - Get-TargetResource now correctly return `$null` for the collation property
-    when the database does not exist ([issue #1395](https://github.com/dsccommunity/SqlServerDsc/issues/1395)).
+    when the database does not exist ([issue #1395](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1395)).
   - No longer enforces the collation property if the Collation parameter
-    is not part of the configuration ([issue #1396](https://github.com/dsccommunity/SqlServerDsc/issues/1396)).
+    is not part of the configuration ([issue #1396](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1396)).
   - Updated resource description in README.md
-  - Fix examples to use `PsDscRunAsCredential` ([issue #760](https://github.com/dsccommunity/SqlServerDsc/issues/760)).
-  - Added integration tests ([issue #739](https://github.com/dsccommunity/SqlServerDsc/issues/739)).
-  - Updated unit tests to the latest template ([issue #1068](https://github.com/dsccommunity/SqlServerDsc/issues/1068)).
+  - Fix examples to use `PsDscRunAsCredential` ([issue #760](https://github.com/dsccommunity/SqlServerCustomDsc/issues/760)).
+  - Added integration tests ([issue #739](https://github.com/dsccommunity/SqlServerCustomDsc/issues/739)).
+  - Updated unit tests to the latest template ([issue #1068](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1068)).
 
 ## [13.0.0.0] - 2019-06-26
 
 ### Changed
 
-- Changes to SqlServerDsc
+- Changes to SqlServerCustomDsc
   - Added SqlAgentAlert resource.
   - Opt-in to the common test 'Common Test - Validation Localization'.
   - Opt-in to the common test 'Common Test - Flagged Script Analyzer Rules'
-    ([issue #1101](https://github.com/dsccommunity/SqlServerDsc/issues/1101)).
+    ([issue #1101](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1101)).
   - Removed the helper function `New-TerminatingError`, `New-WarningMessage`
     and `New-VerboseMessage` in favor of the the new
     [localization helper functions](https://github.com/dsccommunity/DscResources/blob/master/StyleGuidelines.md#localization).
   - Combine DscResource.LocalizationHelper and DscResource.Common into
-    SqlServerDsc.Common ([issue #1357](https://github.com/dsccommunity/SqlServerDsc/issues/1357)).
+    SqlServerCustomDsc.Common ([issue #1357](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1357)).
   - Update Assert-TestEnvironment.ps1 to not error if strict mode is enabled
-    and there are no missing dependencies ([issue #1368](https://github.com/dsccommunity/SqlServerDsc/issues/1368)).
-- Changes to SqlServerDsc.Common
+    and there are no missing dependencies ([issue #1368](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1368)).
+- Changes to SqlServerCustomDsc.Common
   - Added StatementTimeout to function 'Connect-SQL' with default 600 seconds (10mins).
   - Added StatementTimeout to function 'Invoke-Query' with default 600 seconds (10mins)
-    ([issue #1358](https://github.com/dsccommunity/SqlServerDsc/issues/1358)).
+    ([issue #1358](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1358)).
   - Changes to helper function Connect-SQL
     - The function now make it more clear that when using the parameter
       `SetupCredential` is impersonates that user, and by default it does
@@ -673,23 +673,23 @@ in a future release.
 - Changes to SqlDatabaseRole
   - BREAKING CHANGE: Refactored to enable creation/deletion of the database role
     itself as well as management of the role members. *Note that the resource no
-    longer adds database users.* ([issue #845](https://github.com/dsccommunity/SqlServerDsc/issues/845),
-    [issue #847](https://github.com/dsccommunity/SqlServerDsc/issues/847),
-    [issue #1252](https://github.com/dsccommunity/SqlServerDsc/issues/1252),
-    [issue #1339](https://github.com/dsccommunity/SqlServerDsc/issues/1339)).
+    longer adds database users.* ([issue #845](https://github.com/dsccommunity/SqlServerCustomDsc/issues/845),
+    [issue #847](https://github.com/dsccommunity/SqlServerCustomDsc/issues/847),
+    [issue #1252](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1252),
+    [issue #1339](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1339)).
     [Paul Shamus @pshamus](https://github.com/pshamus)
 - Changes to SqlSetup
   - Add an Action type of 'Upgrade'. This will ask setup to do a version
-    upgrade where possible ([issue #1368](https://github.com/dsccommunity/SqlServerDsc/issues/1368)).
-  - Fix an error when testing for DQS installation ([issue #1368](https://github.com/dsccommunity/SqlServerDsc/issues/1368)).
+    upgrade where possible ([issue #1368](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1368)).
+  - Fix an error when testing for DQS installation ([issue #1368](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1368)).
   - Changed the logic of how default value of FailoverClusterGroupName is
     set since that was preventing the resource to be able to be debugged
-    ([issue #448](https://github.com/dsccommunity/SqlServerDsc/issues/448)).
-  - Added RSInstallMode parameter ([issue #1163](https://github.com/dsccommunity/SqlServerDsc/issues/1163)).
+    ([issue #448](https://github.com/dsccommunity/SqlServerCustomDsc/issues/448)).
+  - Added RSInstallMode parameter ([issue #1163](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1163)).
 - Changes to SqlWindowsFirewall
   - Where a version upgrade has changed paths for a database engine, the
     existing firewall rule for that instance will be updated rather than
-    another one created ([issue #1368](https://github.com/dsccommunity/SqlServerDsc/issues/1368)).
+    another one created ([issue #1368](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1368)).
     Other firewall rules can be fixed to work in the same way later.
 - Changes to SqlAGDatabase
   - Added new parameter 'ReplaceExisting' with default false.
@@ -697,7 +697,7 @@ in a future release.
   - Added StatementTimeout to Invoke-Query to fix Issue#1358
   - Fix issue where calling Get would return an error because the database
     name list may have been returned as a string instead of as a string array
-    ([issue #1368](https://github.com/dsccommunity/SqlServerDsc/issues/1368)).
+    ([issue #1368](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1368)).
 
 ## [12.5.0.0] - 2019-05-15
 
@@ -712,7 +712,7 @@ in a future release.
     `Invoke-SqlScript` so that `PRINT` statements is outputted correctly
     when verbose output is requested, e.g
     `Start-DscConfiguration -Verbose`.
-  - Added en-US localization ([issue #624](https://github.com/dsccommunity/SqlServerDsc/issues/624)).
+  - Added en-US localization ([issue #624](https://github.com/dsccommunity/SqlServerCustomDsc/issues/624)).
   - Added additional unit tests for code coverage.
 - Changes to SqlScriptQuery
   - Correctly passes the `$VerbosePreference` to the helper function
@@ -722,68 +722,68 @@ in a future release.
   - Added en-US localization.
   - Added additional unit tests for code coverage.
 - Changes to SqlSetup
-  - Concatenated Robocopy localization strings ([issue #694](https://github.com/dsccommunity/SqlServerDsc/issues/694)).
+  - Concatenated Robocopy localization strings ([issue #694](https://github.com/dsccommunity/SqlServerCustomDsc/issues/694)).
   - Made the error message more descriptive when the Set-TargetResource
     function calls the Test-TargetResource function to verify the desired
     state.
 - Changes to SqlWaitForAG
-  - Added en-US localization ([issue #625](https://github.com/dsccommunity/SqlServerDsc/issues/625)).
+  - Added en-US localization ([issue #625](https://github.com/dsccommunity/SqlServerCustomDsc/issues/625)).
 - Changes to SqlServerPermission
-  - Added en-US localization ([issue #619](https://github.com/dsccommunity/SqlServerDsc/issues/619)).
+  - Added en-US localization ([issue #619](https://github.com/dsccommunity/SqlServerCustomDsc/issues/619)).
 - Changes to SqlServerMemory
-  - Added en-US localization ([issue #617](https://github.com/dsccommunity/SqlServerDsc/issues/617)).
+  - Added en-US localization ([issue #617](https://github.com/dsccommunity/SqlServerCustomDsc/issues/617)).
   - No longer will the resource set the MinMemory value if it was provided
     in a configuration that also set the `Ensure` parameter to 'Absent'
-    ([issue #1329](https://github.com/dsccommunity/SqlServerDsc/issues/1329)).
+    ([issue #1329](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1329)).
   - Refactored unit tests to simplify them add add slightly more code
     coverage.
 - Changes to SqlServerMaxDop
-  - Added en-US localization ([issue #616](https://github.com/dsccommunity/SqlServerDsc/issues/616)).
+  - Added en-US localization ([issue #616](https://github.com/dsccommunity/SqlServerCustomDsc/issues/616)).
 - Changes to SqlRS
   - Reporting Services are restarted after changing settings, unless
-    `$SuppressRestart` parameter is set ([issue #1331](https://github.com/dsccommunity/SqlServerDsc/issues/1331)).
+    `$SuppressRestart` parameter is set ([issue #1331](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1331)).
     `$SuppressRestart` will also prevent Reporting Services restart after initialization.
   - Fixed one of the error handling to use localization, and made the
     error message more descriptive when the Set-TargetResource function
     calls the Test-TargetResource function to verify the desired
     state. *This was done prior to adding full en-US localization.*
-  - Fixed ([issue #1258](https://github.com/dsccommunity/SqlServerDsc/issues/1258)).
+  - Fixed ([issue #1258](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1258)).
     When initializing Reporting Services, there is no need to execute `InitializeReportServer`
     CIM method, since executing `SetDatabaseConnection` CIM method initializes
     Reporting Services.
-  - [issue #864](https://github.com/dsccommunity/SqlServerDsc/issues/864) SqlRs
+  - [issue #864](https://github.com/dsccommunity/SqlServerCustomDsc/issues/864) SqlRs
     can now initialise SSRS 2017 instances
 - Changes to SqlServerLogin
-  - Added en-US localization ([issue #615](https://github.com/dsccommunity/SqlServerDsc/issues/615)).
+  - Added en-US localization ([issue #615](https://github.com/dsccommunity/SqlServerCustomDsc/issues/615)).
   - Added unit tests to improved code coverage.
 - Changes to SqlWindowsFirewall
-  - Added en-US localization ([issue #614](https://github.com/dsccommunity/SqlServerDsc/issues/614)).
+  - Added en-US localization ([issue #614](https://github.com/dsccommunity/SqlServerCustomDsc/issues/614)).
 - Changes to SqlServerEndpoint
-  - Added en-US localization ([issue #611](https://github.com/dsccommunity/SqlServerDsc/issues/611)).
+  - Added en-US localization ([issue #611](https://github.com/dsccommunity/SqlServerCustomDsc/issues/611)).
 - Changes to SqlServerEndpointPermission
-  - Added en-US localization ([issue #612](https://github.com/dsccommunity/SqlServerDsc/issues/612)).
+  - Added en-US localization ([issue #612](https://github.com/dsccommunity/SqlServerCustomDsc/issues/612)).
 - Changes to SqlServerEndpointState
-  - Added en-US localization ([issue #613](https://github.com/dsccommunity/SqlServerDsc/issues/613)).
+  - Added en-US localization ([issue #613](https://github.com/dsccommunity/SqlServerCustomDsc/issues/613)).
 - Changes to SqlDatabaseRole
-  - Added en-US localization ([issue #610](https://github.com/dsccommunity/SqlServerDsc/issues/610)).
+  - Added en-US localization ([issue #610](https://github.com/dsccommunity/SqlServerCustomDsc/issues/610)).
 - Changes to SqlDatabaseRecoveryModel
-  - Added en-US localization ([issue #609](https://github.com/dsccommunity/SqlServerDsc/issues/609)).
+  - Added en-US localization ([issue #609](https://github.com/dsccommunity/SqlServerCustomDsc/issues/609)).
 - Changes to SqlDatabasePermission
-  - Added en-US localization ([issue #608](https://github.com/dsccommunity/SqlServerDsc/issues/608)).
+  - Added en-US localization ([issue #608](https://github.com/dsccommunity/SqlServerCustomDsc/issues/608)).
 - Changes to SqlDatabaseOwner
-  - Added en-US localization ([issue #607](https://github.com/dsccommunity/SqlServerDsc/issues/607)).
+  - Added en-US localization ([issue #607](https://github.com/dsccommunity/SqlServerCustomDsc/issues/607)).
 - Changes to SqlDatabase
-  - Added en-US localization ([issue #606](https://github.com/dsccommunity/SqlServerDsc/issues/606)).
+  - Added en-US localization ([issue #606](https://github.com/dsccommunity/SqlServerCustomDsc/issues/606)).
 - Changes to SqlAGListener
-  - Added en-US localization ([issue #604](https://github.com/dsccommunity/SqlServerDsc/issues/604)).
+  - Added en-US localization ([issue #604](https://github.com/dsccommunity/SqlServerCustomDsc/issues/604)).
 - Changes to SqlAlwaysOnService
-  - Added en-US localization ([issue #603](https://github.com/dsccommunity/SqlServerDsc/issues/608)).
+  - Added en-US localization ([issue #603](https://github.com/dsccommunity/SqlServerCustomDsc/issues/608)).
 - Changes to SqlAlias
-  - Added en-US localization ([issue #602](https://github.com/dsccommunity/SqlServerDsc/issues/602)).
+  - Added en-US localization ([issue #602](https://github.com/dsccommunity/SqlServerCustomDsc/issues/602)).
   - Removed ShouldProcess for the code, since it has no purpose in a DSC
-    resource ([issue #242](https://github.com/dsccommunity/SqlServerDsc/issues/242)).
+    resource ([issue #242](https://github.com/dsccommunity/SqlServerCustomDsc/issues/242)).
 - Changes to SqlServerReplication
-  - Added en-US localization ([issue #620](https://github.com/dsccommunity/SqlServerDsc/issues/620)).
+  - Added en-US localization ([issue #620](https://github.com/dsccommunity/SqlServerCustomDsc/issues/620)).
   - Refactored Get-TargetResource slightly so it provide better verbose
     messages.
 
@@ -791,12 +791,12 @@ in a future release.
 
 ### Changed
 
-- Changes to SqlServerDsc
+- Changes to SqlServerCustomDsc
   - Added new resources.
     - SqlRSSetup
   - Added helper module DscResource.Common from the repository
     DscResource.Template.
-    - Moved all helper functions from SqlServerDscHelper.psm1 to DscResource.Common.
+    - Moved all helper functions from SqlServerCustomDscHelper.psm1 to DscResource.Common.
     - Renamed Test-SqlDscParameterState to Test-DscParameterState.
     - New-TerminatingError error text for a missing localized message now matches
       the output even if the "missing localized message" localized message is
@@ -809,11 +809,11 @@ in a future release.
 - Changes to SqlServerMemory
   - Updated Cim Class to Win32_ComputerSystem (instead of Win32_PhysicalMemory)
     because the correct memory size was not being detected correctly on Azure VMs
-    ([issue #914](https://github.com/dsccommunity/SqlServerDsc/issues/914)).
+    ([issue #914](https://github.com/dsccommunity/SqlServerCustomDsc/issues/914)).
 - Changes to SqlSetup
   - Split integration tests into two jobs, one for running integration tests
     for SQL Server 2016 and another for running integration test for
-    SQL Server 2017 ([issue #858](https://github.com/dsccommunity/SqlServerDsc/issues/858)).
+    SQL Server 2017 ([issue #858](https://github.com/dsccommunity/SqlServerCustomDsc/issues/858)).
   - Localized messages for Master Data Services no longer start and end with
     single quote.
   - When installing features a verbose message is written if a feature is found
@@ -825,18 +825,18 @@ in a future release.
     breaking changes. Functionality added under a feature flag can be
     toggled on or off, and could be changed later to be the default.
     This way we can also make more of the new functionalities the default
-    in the same breaking change release ([issue #1105](https://github.com/dsccommunity/SqlServerDsc/issues/1105)).
+    in the same breaking change release ([issue #1105](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1105)).
   - Added a new way of detecting if the shared feature CONN (Client Tools
     Connectivity, and SQL Client Connectivity SDK), BC (Client Tools
     Backwards Compatibility), and SDK (Client Tools SDK) is installed or
     not. The new functionality is used when the parameter `FeatureFlag`
-    is set to `'DetectionSharedFeatures'` ([issue #1105](https://github.com/dsccommunity/SqlServerDsc/issues/1105)).
+    is set to `'DetectionSharedFeatures'` ([issue #1105](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1105)).
   - Added a new helper function `Get-InstalledSharedFeatures` to move out
     some of the code from the `Get-TargetResource` to make unit testing
     easier and faster.
   - Changed the logic of 'Build the argument string to be passed to setup' to
     not quote the value if root directory is specified
-    ([issue #1254](https://github.com/dsccommunity/SqlServerDsc/issues/1254)).
+    ([issue #1254](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1254)).
   - Moved some resource specific helper functions to the new helper module
     DscResource.Common so they can be shared with the new resource SqlRSSetup.
   - Improved verbose messages in Test-TargetResource function to more
@@ -857,34 +857,34 @@ in a future release.
 - Changes to SqlAGReplica
   - AvailabilityMode, BackupPriority, and FailoverMode defaults only apply when
     creating a replica not when making changes to an existing replica. Explicit
-    parameters will still change existing replicas ([issue #1244](https://github.com/dsccommunity/SqlServerDsc/issues/1244)).
+    parameters will still change existing replicas ([issue #1244](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1244)).
   - ReadOnlyRoutingList now gets updated without throwing an error on the first
-    run ([issue #518](https://github.com/dsccommunity/SqlServerDsc/issues/518)).
+    run ([issue #518](https://github.com/dsccommunity/SqlServerCustomDsc/issues/518)).
   - Test-Resource fixed to report whether ReadOnlyRoutingList desired state
-    has been reached correctly ([issue #1305](https://github.com/dsccommunity/SqlServerDsc/issues/1305)).
+    has been reached correctly ([issue #1305](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1305)).
 - Changes to SqlDatabaseDefaultLocation
   - No longer does the Test-TargetResource fail on the second test run
     when the backup file path was changed, and the path was ending with
-    a backslash ([issue #1307](https://github.com/dsccommunity/SqlServerDsc/issues/1307)).
+    a backslash ([issue #1307](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1307)).
 
 ## [12.3.0.0] - 2019-02-20
 
 ### Changed
 
-- Changes to SqlServerDsc
+- Changes to SqlServerCustomDsc
   - Reverting the change that was made as part of the
-    [issue #1260](https://github.com/dsccommunity/SqlServerDsc/issues/1260)
+    [issue #1260](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1260)
     in the previous release, as it only mitigated the issue, it did not
     solve the issue.
   - Removed the container testing since that broke the integration tests,
     possible due to using excessive amount of memory on the AppVeyor build
     worker. This will make the unit tests to take a bit longer to run
-    ([issue #1260](https://github.com/dsccommunity/SqlServerDsc/issues/1260)).
+    ([issue #1260](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1260)).
   - The unit tests and the integration tests are now run in two separate
     build workers in AppVeyor. One build worker runs the integration tests,
     while a second build worker runs the unit tests. The build workers runs
     in parallel on paid accounts, but sequentially on free accounts
-    ([issue #1260](https://github.com/dsccommunity/SqlServerDsc/issues/1260)).
+    ([issue #1260](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1260)).
   - Clean up error handling in some of the integration tests that was
     part of a workaround for a bug in Pester. The bug is resolved, and
     the error handling is not again built into Pester.
@@ -908,52 +908,52 @@ in a future release.
     (e.g. `DatabaseEngine`), but a different string value as returned
     (e.g. `SqlServer`). Now `Get-TargetResource` return the same values
     that can be passed as values in the parameter `ServiceType`
-    ([issue #981](https://github.com/dsccommunity/SqlServerDsc/issues/981)).
+    ([issue #981](https://github.com/dsccommunity/SqlServerCustomDsc/issues/981)).
 - Changes to SqlServerLogin
   - Fixed issue in Test-TargetResource to valid password on disabled accounts
-    ([issue #915](https://github.com/dsccommunity/SqlServerDsc/issues/915)).
+    ([issue #915](https://github.com/dsccommunity/SqlServerCustomDsc/issues/915)).
   - Now when adding a login of type SqlLogin, and the SQL Server login mode
     is set to `'Integrated'`, an error is correctly thrown
-    ([issue #1179](https://github.com/dsccommunity/SqlServerDsc/issues/1179)).
+    ([issue #1179](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1179)).
 - Changes to SqlSetup
   - Updated the integration test to stop the named instance while installing
     the other instances to mitigate
-    [issue #1260](https://github.com/dsccommunity/SqlServerDsc/issues/1260).
+    [issue #1260](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1260).
   - Add parameters to configure the Tempdb files during the installation of
     the instance. The new parameters are SqlTempdbFileCount, SqlTempdbFileSize,
     SqlTempdbFileGrowth, SqlTempdbLogFileSize and SqlTempdbLogFileGrowth
-    ([issue #1167](https://github.com/dsccommunity/SqlServerDsc/issues/1167)).
+    ([issue #1167](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1167)).
 - Changes to SqlServerEndpoint
   - Add the optional parameter Owner. The default owner remains the login used
     for the creation of the endpoint
-    ([issue #1251](https://github.com/dsccommunity/SqlServerDsc/issues/1251)).
+    ([issue #1251](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1251)).
     [Maxime Daniou (@mdaniou)](https://github.com/mdaniou)
   - Add integration tests
-    ([issue #744](https://github.com/dsccommunity/SqlServerDsc/issues/744)).
+    ([issue #744](https://github.com/dsccommunity/SqlServerCustomDsc/issues/744)).
     [Maxime Daniou (@mdaniou)](https://github.com/mdaniou)
 
 ## [12.2.0.0] - 2019-01-09
 
 ### Changed
 
-- Changes to SqlServerDsc
+- Changes to SqlServerCustomDsc
   - During testing in AppVeyor the Build Worker is restarted in the install
     step to make sure the are no residual changes left from a previous SQL
     Server install on the Build Worker done by the AppVeyor Team
-    ([issue #1260](https://github.com/dsccommunity/SqlServerDsc/issues/1260)).
+    ([issue #1260](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1260)).
   - Code cleanup: Change parameter names of Connect-SQL to align with resources.
   - Updated README.md in the Examples folder.
     - Added a link to the new xADObjectPermissionEntry examples in
       ActiveDirectory, fixed a broken link and a typo.
       [Adam Rush (@adamrushuk)](https://github.com/adamrushuk)
 - Change to SqlServerLogin so it doesn't check properties for absent logins.
-  - Fix for ([issue #1096](https://github.com/dsccommunity/SqlServerDsc/issues/1096))
+  - Fix for ([issue #1096](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1096))
 
 ## [12.1.0.0] - 2018-10-24
 
 ### Changed
 
-- Changes to SqlServerDsc
+- Changes to SqlServerCustomDsc
   - Add support for validating the code with the DSC ResourceKit
     Script Analyzer rules, both in Visual Studio Code and directly using
     `Invoke-ScriptAnalyzer`.
@@ -969,8 +969,8 @@ in a future release.
     must be run prior to running any unit tests locally with
     `Invoke-Pester`.
     Read more in the specific contributing guidelines, under the section
-    [Unit Tests](https://github.com/dsccommunity/SqlServerDsc/blob/dev/CONTRIBUTING.md#unit-tests).
-- Changes to SqlServerDscHelper
+    [Unit Tests](https://github.com/dsccommunity/SqlServerCustomDsc/blob/dev/CONTRIBUTING.md#unit-tests).
+- Changes to SqlServerCustomDscHelper
   - Fix style guideline lint errors.
   - Changes to Connect-SQL
     - Adding verbose message in Connect-SQL so it
@@ -985,12 +985,12 @@ in a future release.
 - Changes to SqlAg, SqlAGDatabase, and SqlAGReplica examples
   - Included configuration for SqlAlwaysOnService to enable
     HADR on each node to avoid confusion
-    ([issue #1182](https://github.com/dsccommunity/SqlServerDsc/issues/1182)).
+    ([issue #1182](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1182)).
 - Changes to SqlServerDatabaseMail
   - Minor update to Ensure parameter description in the README.md.
 - Changes to Write-ModuleStubFile.ps1
   - Create aliases for cmdlets in the stubbed module which have aliases
-    ([issue #1224](https://github.com/dsccommunity/SqlServerDsc/issues/1224)).
+    ([issue #1224](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1224)).
     [Dan Reist (@randomnote1)](https://github.com/randomnote1)
   - Use a string builder to build the function stubs.
   - Fixed formatting issues for the function to work with modules other
@@ -1000,11 +1000,11 @@ in a future release.
     connections.
 - Changes to SqlAlwaysOnService
   - Updated integration tests to use NetworkingDsc
-    ([issue #1129](https://github.com/dsccommunity/SqlServerDsc/issues/1129)).
+    ([issue #1129](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1129)).
 - Changes to SqlServiceAccount
   - Fix unit tests that didn't mock some of the calls. It no longer fail
     when a SQL Server installation is not present on the node running the
-    unit test ([issue #983](https://github.com/dsccommunity/SqlServerDsc/issues/983)).
+    unit test ([issue #983](https://github.com/dsccommunity/SqlServerCustomDsc/issues/983)).
 
 ## [12.0.0.0] - 2018-09-05
 
@@ -1012,30 +1012,30 @@ in a future release.
 
 - Changes to SqlServerDatabaseMail
   - DisplayName is now properly treated as display name
-    for the originating email address ([issue #1200](https://github.com/dsccommunity/SqlServerDsc/issue/1200)).
+    for the originating email address ([issue #1200](https://github.com/dsccommunity/SqlServerCustomDsc/issue/1200)).
     [Nick Reilingh (@NReilingh)](https://github.com/NReilingh)
     - DisplayName property now defaults to email address instead of server name.
     - Minor improvements to documentation.
 - Changes to SqlAGDatabase
   - Corrected reference to "PsDscRunAsAccount" in documentation
-    ([issue #1199](https://github.com/dsccommunity/SqlServerDsc/issues/1199)).
+    ([issue #1199](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1199)).
     [Nick Reilingh (@NReilingh)](https://github.com/NReilingh)
 - Changes to SqlDatabaseOwner
   - BREAKING CHANGE: Support multiple instances on the same node.
     The parameter InstanceName is now Key and cannot be omitted
-    ([issue #1197](https://github.com/dsccommunity/SqlServerDsc/issues/1197)).
+    ([issue #1197](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1197)).
 - Changes to SqlSetup
   - Added new parameters to allow to define the startup types for the Sql Engine
     service, the Agent service, the Analysis service and the Integration Service.
     The new optional parameters are respectively SqlSvcStartupType, AgtSvcStartupType,
-    AsSvcStartupType, IsSvcStartupType and RsSvcStartupType ([issue #1165](https://github.com/dsccommunity/SqlServerDsc/issues/1165).
+    AsSvcStartupType, IsSvcStartupType and RsSvcStartupType ([issue #1165](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1165).
     [Maxime Daniou (@mdaniou)](https://github.com/mdaniou)
 
 ## [11.4.0.0] - 2018-07-25
 
 ### Changed
 
-- Changes to SqlServerDsc
+- Changes to SqlServerCustomDsc
   - Updated helper function Restart-SqlService to have to new optional parameters
     `SkipClusterCheck` and `SkipWaitForOnline`. This was to support more aspects
     of the resource SqlServerNetwork.
@@ -1050,13 +1050,13 @@ in a future release.
     passwords by default are secure.
 - Changes to SqlAlwaysOnService
   - Integration tests was updated to handle new IPv6 addresses on the AppVeyor
-    build worker ([issue #1155](https://github.com/dsccommunity/SqlServerDsc/issues/1155)).
+    build worker ([issue #1155](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1155)).
 - Changes to SqlServerNetwork
-  - Refactor SqlServerNetwork to not load assembly from GAC ([issue #1151](https://github.com/dsccommunity/SqlServerDsc/issues/1151)).
+  - Refactor SqlServerNetwork to not load assembly from GAC ([issue #1151](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1151)).
   - The resource now supports restarting the SQL Server service when both
     enabling and disabling the protocol.
   - Added integration tests for this resource
-    ([issue #751](https://github.com/dsccommunity/SqlServerDsc/issues/751)).
+    ([issue #751](https://github.com/dsccommunity/SqlServerCustomDsc/issues/751)).
 - Changes to SqlAG
   - Removed excess `Import-SQLPSModule` call.
 - Changes to SqlSetup
@@ -1069,19 +1069,19 @@ in a future release.
 
 ### Changed
 
-- Changes to SqlServerDsc
+- Changes to SqlServerCustomDsc
   - Moved decoration for integration test to resolve a breaking change in
     DscResource.Tests.
   - Activated the GitHub App Stale on the GitHub repository.
   - Added a CODE\_OF\_CONDUCT.md with the same content as in the README.md
-    [issue #939](https://github.com/dsccommunity/SqlServerDsc/issues/939).
+    [issue #939](https://github.com/dsccommunity/SqlServerCustomDsc/issues/939).
   - New resources:
     - Added SqlScriptQueryResource. [Chase Wilson (@chasewilson)](https://github.com/chasewilson)
   - Fix for issue #779 [Paul Kelly (@prkelly)](https://github.com/prkelly)
 
 ## [11.2.0.0] - 2018-05-02
 
-- Changes to SqlServerDsc
+- Changes to SqlServerCustomDsc
   - Added new test helper functions in the CommonTestHelpers module. These are used
     by the integration tests.
     - **New-IntegrationLoopbackAdapter:** Installs the PowerShell module
@@ -1091,13 +1091,13 @@ in a future release.
     - **Get-NetIPAddressNetwork:** Returns the IP network address from an IPv4 address
       and prefix length.
   - Enabled PSSA rule violations to fail build in the CI environment.
-  - Renamed SqlServerDsc.psd1 to be consistent
-    ([issue #1116](https://github.com/dsccommunity/SqlServerDsc/issues/1116)).
+  - Renamed SqlServerCustomDsc.psd1 to be consistent
+    ([issue #1116](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1116)).
     [Glenn Sarti (@glennsarti)](https://github.com/glennsarti)
 - Changes to Unit Tests
   - Updated
     the following resources unit test template to version 1.2.1
-    - SqlWaitForAG ([issue #1088](https://github.com/dsccommunity/SqlServerDsc/issues/1088)).
+    - SqlWaitForAG ([issue #1088](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1088)).
       [Michael Fyffe (@TraGicCode)](https://github.com/TraGicCode)
 - Changes to SqlAlwaysOnService
   - Updated the integration tests to use a loopback adapter to be less intrusive
@@ -1112,7 +1112,7 @@ in a future release.
   - Updated the integration tests to stop the Reporting Services service after
     the integration test. This is to save memory on the AppVeyor build worker.
   - The helper function `Restart-ReportingServicesService` should no longer timeout
-    when restarting the service ([issue #1114](https://github.com/dsccommunity/SqlServerDsc/issues/1114)).
+    when restarting the service ([issue #1114](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1114)).
 - Changes to SqlServiceAccount
   - Updated the integration tests to stop some services after each integration test.
     This is to save memory on the AppVeyor build worker.
@@ -1123,40 +1123,40 @@ in a future release.
 
 ### Changed
 
-- Changes to SqlServerDsc
+- Changes to SqlServerCustomDsc
   - Updated the PULL\_REQUEST\_TEMPLATE with an improved task list and modified
-    some text to be clearer ([issue #973](https://github.com/dsccommunity/SqlServerDsc/issues/973)).
+    some text to be clearer ([issue #973](https://github.com/dsccommunity/SqlServerCustomDsc/issues/973)).
   - Updated the ISSUE_TEMPLATE to hopefully be more intuitive and easier to use.
   - Added information to ISSUE_TEMPLATE that issues must be reproducible in
-    SqlServerDsc resource module (if running the older xSQLServer resource module)
-    ([issue #1036](https://github.com/dsccommunity/SqlServerDsc/issues/1036)).
-  - Updated ISSUE_TEMPLATE.md with a note about sensitive information ([issue #1092](https://github.com/dsccommunity/SqlServerDsc/issues/1092)).
+    SqlServerCustomDsc resource module (if running the older xSQLServer resource module)
+    ([issue #1036](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1036)).
+  - Updated ISSUE_TEMPLATE.md with a note about sensitive information ([issue #1092](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1092)).
 - Changes to SqlServerLogin
   - [Claudio Spizzi (@claudiospizzi)](https://github.com/claudiospizzi): Fix password
-    test fails for nativ sql users ([issue #1048](https://github.com/dsccommunity/SqlServerDsc/issues/1048)).
+    test fails for nativ sql users ([issue #1048](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1048)).
 - Changes to SqlSetup
   - [Michael Fyffe (@TraGicCode)](https://github.com/TraGicCode): Clarify usage
     of 'SecurityMode' along with adding parameter validations for the only 2
-    supported values ([issue #1010](https://github.com/dsccommunity/SqlServerDsc/issues/1010)).
+    supported values ([issue #1010](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1010)).
   - Now accounts containing '$' will be able to be used for installing
     SQL Server. Although, if the account ends with '$' it is considered a
-    Managed Service Account ([issue #1055](https://github.com/dsccommunity/SqlServerDsc/issues/1055)).
+    Managed Service Account ([issue #1055](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1055)).
 - Changes to Integration Tests
   - [Michael Fyffe (@TraGicCode)](https://github.com/TraGicCode): Replace xStorage
-    dsc resource module with StorageDsc ([issue #1038](https://github.com/dsccommunity/SqlServerDsc/issues/1038)).
+    dsc resource module with StorageDsc ([issue #1038](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1038)).
 - Changes to Unit Tests
   - [Michael Fyffe (@TraGicCode)](https://github.com/TraGicCode): Updated
     the following resources unit test template to version 1.2.1
-    - SqlAlias ([issue #999](https://github.com/dsccommunity/SqlServerDsc/issues/999)).
-    - SqlWindowsFirewall ([issue #1089](https://github.com/dsccommunity/SqlServerDsc/issues/1089)).
+    - SqlAlias ([issue #999](https://github.com/dsccommunity/SqlServerCustomDsc/issues/999)).
+    - SqlWindowsFirewall ([issue #1089](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1089)).
 
 ## [11.0.0.0] - 2018-02-07
 
 ### Changed
 
-- Changes to SqlServerDsc
+- Changes to SqlServerCustomDsc
   - BREAKING CHANGE: Resource SqlRSSecureConnectionLevel was remove
-    ([issue #990](https://github.com/dsccommunity/SqlServerDsc/issues/990)).
+    ([issue #990](https://github.com/dsccommunity/SqlServerCustomDsc/issues/990)).
     The parameter that was set using that resource has been merged into resource
     SqlRS as the parameter UseSsl. The UseSsl parameter is of type boolean. This
     change was made because from SQL Server 2008 R2 this value is made an on/off
@@ -1164,7 +1164,7 @@ in a future release.
   - Updated so that named parameters are used for New-Object cmdlet. This was
     done to follow the style guideline.
   - Updated manifest and license to reflect the new year
-    ([issue #965](https://github.com/dsccommunity/SqlServerDsc/issues/965)).
+    ([issue #965](https://github.com/dsccommunity/SqlServerCustomDsc/issues/965)).
   - Added a README.md under Tests\Integration to help contributors to write
     integration tests.
   - Added 'Integration tests' section in the CONTRIBUTING.md.
@@ -1172,30 +1172,30 @@ in a future release.
     referenced resources that no longer exist. Accurate examples can be found
     in each specific resource example folder. Examples for installing Failover Cluster
     can be found in the resource examples folders in the xFailOverCluster
-    resource module ([issue #462](https://github.com/dsccommunity/SqlServerDsc/issues/462)).
+    resource module ([issue #462](https://github.com/dsccommunity/SqlServerCustomDsc/issues/462)).
   - A README.md was created under the Examples folder to be used as reference how
-    to install certain scenarios ([issue #462](https://github.com/dsccommunity/SqlServerDsc/issues/462)).
+    to install certain scenarios ([issue #462](https://github.com/dsccommunity/SqlServerCustomDsc/issues/462)).
   - Removed the local specific common test for compiling examples in this repository
     and instead opted-in for the common test in the 'DscResource.Tests' repository
-    ([issue #669](https://github.com/dsccommunity/SqlServerDsc/issues/669)).
+    ([issue #669](https://github.com/dsccommunity/SqlServerCustomDsc/issues/669)).
   - Added new resource SqlServerDatabaseMail for configuring SQL Server
-    Database Mail ([issue #155](https://github.com/dsccommunity/SqlServerDsc/issues/155)).
+    Database Mail ([issue #155](https://github.com/dsccommunity/SqlServerCustomDsc/issues/155)).
   - Updated the helper function Test-SQLDscParameterState to handle the
     data type UInt16.
-  - Fixed typo in SqlServerDscCommon.Tests.
+  - Fixed typo in SqlServerCustomDscCommon.Tests.
   - Updated README.md with known issue section for each resource.
   - Resources that did not have a description in the README.md now has one.
   - Resources that missed links to the examples in the README.md now has those
     links.
   - Style changes in all examples, removing type [System.Management.Automation.Credential()]
-    from credential parameters ([issue #1003](https://github.com/dsccommunity/SqlServerDsc/issues/1003)),
+    from credential parameters ([issue #1003](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1003)),
     and renamed the credential parameter so it is not using abbreviation.
   - Updated the security token for AppVeyor status badge in README.md. When we
     renamed the repository the security token was changed
-    ([issue #1012](https://github.com/dsccommunity/SqlServerDsc/issues/1012)).
+    ([issue #1012](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1012)).
   - Now the helper function Restart-SqlService, after restarting the SQL Server
     service, does not return until it can connect to the SQL Server instance, and
-    the instance returns status 'Online' ([issue #1008](https://github.com/dsccommunity/SqlServerDsc/issues/1008)).
+    the instance returns status 'Online' ([issue #1008](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1008)).
     If it fails to connect within the timeout period (defaults to 120 seconds) it
     throws an error.
   - Fixed typo in comment-base help for helper function Test-AvailabilityReplicaSeedingModeAutomatic.
@@ -1215,33 +1215,33 @@ in a future release.
   - Fixed minor typos in comment.
   - Style cleanup in code and tests.
   - Updated description for parameter Name in README.md and in comment-based help
-    ([issue #1034](https://github.com/dsccommunity/SqlServerDsc/issues/1034)).
+    ([issue #1034](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1034)).
 - Changes to SqlAlias
   - Fixed issue where exception was thrown if reg keys did not exist
-    ([issue #949](https://github.com/dsccommunity/SqlServerDsc/issues/949)).
+    ([issue #949](https://github.com/dsccommunity/SqlServerCustomDsc/issues/949)).
   - Style cleanup in tests.
 - Changes to SqlAlwaysOnService
   - Refactor integration tests slightly to improve run time performance
-    ([issue #1001](https://github.com/dsccommunity/SqlServerDsc/issues/1001)).
+    ([issue #1001](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1001)).
   - Style cleanup in code and tests.
 - Changes to SqlDatabase
   - Fix minor Script Analyzer warning.
 - Changes to SqlDatabaseDefaultLocation
   - Refactor integration tests slightly to improve run time performance
-    ([issue #1001](https://github.com/dsccommunity/SqlServerDsc/issues/1001)).
+    ([issue #1001](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1001)).
   - Minor style cleanup of code in tests.
 - Changes to SqlDatabaseRole
   - Style cleanup in tests.
 - Changes to SqlRS
   - Replaced Get-WmiObject with Get-CimInstance to fix Script Analyzer warnings
-    ([issue #264](https://github.com/dsccommunity/SqlServerDsc/issues/264)).
+    ([issue #264](https://github.com/dsccommunity/SqlServerCustomDsc/issues/264)).
   - Refactored the resource to use Invoke-CimMethod.
   - Added parameter UseSsl which when set to $true forces connections to the
-    Reporting Services to use SSL when connecting ([issue #990](https://github.com/dsccommunity/SqlServerDsc/issues/990)).
+    Reporting Services to use SSL when connecting ([issue #990](https://github.com/dsccommunity/SqlServerCustomDsc/issues/990)).
   - Added complete example for SqlRS (based on the integration tests)
-    ([issue #634](https://github.com/dsccommunity/SqlServerDsc/issues/634)).
+    ([issue #634](https://github.com/dsccommunity/SqlServerCustomDsc/issues/634)).
   - Refactor integration tests slightly to improve run time performance
-    ([issue #1001](https://github.com/dsccommunity/SqlServerDsc/issues/1001)).
+    ([issue #1001](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1001)).
   - Style cleanup in code and tests.
 - Changes to SqlScript
   - Style cleanup in tests.
@@ -1252,16 +1252,16 @@ in a future release.
 - Changes to SqlServerConfiguration
   - Fixed minor typos in comment-based help.
   - Now the verbose message say what option is changing and to what value
-    ([issue #1014](https://github.com/dsccommunity/SqlServerDsc/issues/1014)).
+    ([issue #1014](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1014)).
   - Changed the RestartTimeout parameter from type SInt32 to type UInt32.
-  - Added localization ([issue #605](https://github.com/dsccommunity/SqlServerDsc/issues/605)).
+  - Added localization ([issue #605](https://github.com/dsccommunity/SqlServerCustomDsc/issues/605)).
   - Style cleanup in code and tests.
 - Changes to SqlServerEndpoint
   - Updated README.md with links to the examples
-    ([issue #504](https://github.com/dsccommunity/SqlServerDsc/issues/504)).
+    ([issue #504](https://github.com/dsccommunity/SqlServerCustomDsc/issues/504)).
   - Style cleanup in tests.
 - Changes to SqlServerLogin
-  - Added integration tests ([issue #748](https://github.com/dsccommunity/SqlServerDsc/issues/748)).
+  - Added integration tests ([issue #748](https://github.com/dsccommunity/SqlServerCustomDsc/issues/748)).
   - Minor code style cleanup.
   - Removed unused variable and instead piped the helper function Connect-SQL to
     Out-Null.
@@ -1279,36 +1279,36 @@ in a future release.
 - Changes to SqlServerNetwork
   - Added sysadmin account parameter usage to the examples.
 - Changes to SqlServerReplication
-  - Fix Script Analyzer warning ([issue #263](https://github.com/dsccommunity/SqlServerDsc/issues/263)).
+  - Fix Script Analyzer warning ([issue #263](https://github.com/dsccommunity/SqlServerCustomDsc/issues/263)).
 - Changes to SqlServerRole
-  - Added localization ([issue #621](https://github.com/dsccommunity/SqlServerDsc/issues/621)).
-  - Added integration tests ([issue #756](https://github.com/dsccommunity/SqlServerDsc/issues/756)).
+  - Added localization ([issue #621](https://github.com/dsccommunity/SqlServerCustomDsc/issues/621)).
+  - Added integration tests ([issue #756](https://github.com/dsccommunity/SqlServerCustomDsc/issues/756)).
   - Updated example to add two server roles in the same configuration.
   - Style cleanup in tests.
 - Changes to SqlServiceAccount
   - Default services are now properly detected
-    ([issue #930](https://github.com/dsccommunity/SqlServerDsc/issues/930)).
+    ([issue #930](https://github.com/dsccommunity/SqlServerCustomDsc/issues/930)).
   - Made the description of parameter RestartService more descriptive
-    ([issue #960](https://github.com/dsccommunity/SqlServerDsc/issues/960)).
+    ([issue #960](https://github.com/dsccommunity/SqlServerCustomDsc/issues/960)).
   - Added a read-only parameter ServiceAccountName so that the service account
-    name is correctly returned as a string ([issue #982](https://github.com/dsccommunity/SqlServerDsc/issues/982)).
-  - Added integration tests ([issue #980](https://github.com/dsccommunity/SqlServerDsc/issues/980)).
+    name is correctly returned as a string ([issue #982](https://github.com/dsccommunity/SqlServerCustomDsc/issues/982)).
+  - Added integration tests ([issue #980](https://github.com/dsccommunity/SqlServerCustomDsc/issues/980)).
   - The timing issue that the resource returned before SQL Server service was
     actually restarted has been solved by a change in the helper function
-    Restart-SqlService ([issue #1008](https://github.com/dsccommunity/SqlServerDsc/issues/1008)).
+    Restart-SqlService ([issue #1008](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1008)).
     Now Restart-SqlService waits for the instance to return status 'Online' or
     throws an error saying it failed to connect within the timeout period.
   - Style cleanup in code and tests.
 - Changes to SqlSetup
   - Added parameter `ASServerMode` to support installing Analysis Services in
     Multidimensional mode, Tabular mode and PowerPivot mode
-    ([issue #388](https://github.com/dsccommunity/SqlServerDsc/issues/388)).
+    ([issue #388](https://github.com/dsccommunity/SqlServerCustomDsc/issues/388)).
   - Added integration tests for testing Analysis Services Multidimensional mode
     and Tabular mode.
   - Cleaned up integration tests.
   - Added integration tests for installing a default instance of Database Engine.
   - Refactor integration tests slightly to improve run time performance
-    ([issue #1001](https://github.com/dsccommunity/SqlServerDsc/issues/1001)).
+    ([issue #1001](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1001)).
   - Added PSSA rule 'PSUseDeclaredVarsMoreThanAssignments' override in the
     function Set-TargetResource for the variable $global:DSCMachineStatus.
   - Style cleanup in code and tests.
@@ -1322,124 +1322,124 @@ in a future release.
 
 ### Changed
 
-- BREAKING CHANGE: Resource module has been renamed to SqlServerDsc
-  ([issue #916](https://github.com/dsccommunity/SqlServerDsc/issues/916)).
+- BREAKING CHANGE: Resource module has been renamed to SqlServerCustomDsc
+  ([issue #916](https://github.com/dsccommunity/SqlServerCustomDsc/issues/916)).
 - BREAKING CHANGE: Significant rename to reduce length of resource names
-  - See [issue #851](https://github.com/dsccommunity/SqlServerDsc/issues/851)
+  - See [issue #851](https://github.com/dsccommunity/SqlServerCustomDsc/issues/851)
     for a complete table mapping rename changes.
   - Impact to all resources.
 - Changes to CONTRIBUTING.md
-  - Added details to the naming convention used in SqlServerDsc.
-- Changes to SqlServerDsc
+  - Added details to the naming convention used in SqlServerCustomDsc.
+- Changes to SqlServerCustomDsc
   - The examples in the root of the Examples folder are obsolete. A note was
     added to the comment-based help in each example stating it is obsolete.
     This is a temporary measure until they are replaced
-    ([issue #904](https://github.com/dsccommunity/SqlServerDsc/issues/904)).
+    ([issue #904](https://github.com/dsccommunity/SqlServerCustomDsc/issues/904)).
   - Added new common test (regression test) for validating the long path
     issue for compiling resources in Azure Automation.
-  - Fix resources in alphabetical order in README.md ([issue #908](https://github.com/dsccommunity/SqlServerDsc/issues/908)).
+  - Fix resources in alphabetical order in README.md ([issue #908](https://github.com/dsccommunity/SqlServerCustomDsc/issues/908)).
 - Changes to SqlAG
   - BREAKING CHANGE: Parameters SQLServer and SQLInstanceName has been renamed
     to ServerName and InstanceName respectively
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
   - BREAKING CHANGE: The read-only property SQLServerNetName was removed in favor
-    of EndpointHostName ([issue #924](https://github.com/dsccommunity/SqlServerDsc/issues/924)).
+    of EndpointHostName ([issue #924](https://github.com/dsccommunity/SqlServerCustomDsc/issues/924)).
     Get-TargetResource will now return the value of property [NetName](https://technet.microsoft.com/en-us/library/microsoft.sqlserver.management.smo.server.netname(v=sql.105).aspx)
     for the property EndpointHostName.
 - Changes to SqlAGDatabase
   - BREAKING CHANGE: Parameters SQLServer and SQLInstanceName has been renamed
     to ServerName and InstanceName respectively
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
   - Changed the Get-MatchingDatabaseNames function to be case insensitive when
-    matching database names ([issue #912](https://github.com/dsccommunity/SqlServerDsc/issues/912)).
+    matching database names ([issue #912](https://github.com/dsccommunity/SqlServerCustomDsc/issues/912)).
 - Changes to SqlAGListener
   - BREAKING CHANGE: Parameter NodeName has been renamed to ServerName
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
 - Changes to SqlAGReplica
   - BREAKING CHANGE: Parameters SQLServer and SQLInstanceName has been renamed
     to ServerName and InstanceName respectively
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
   - BREAKING CHANGE: Parameters PrimaryReplicaSQLServer and PrimaryReplicaSQLInstanceName
     has been renamed to PrimaryReplicaServerName and PrimaryReplicaInstanceName
-    respectively ([issue #922](https://github.com/dsccommunity/SqlServerDsc/issues/922)).
+    respectively ([issue #922](https://github.com/dsccommunity/SqlServerCustomDsc/issues/922)).
   - BREAKING CHANGE: The read-only property SQLServerNetName was removed in favor
-    of EndpointHostName ([issue #924](https://github.com/dsccommunity/SqlServerDsc/issues/924)).
+    of EndpointHostName ([issue #924](https://github.com/dsccommunity/SqlServerCustomDsc/issues/924)).
     Get-TargetResource will now return the value of property [NetName](https://technet.microsoft.com/en-us/library/microsoft.sqlserver.management.smo.server.netname(v=sql.105).aspx)
     for the property EndpointHostName.
 - Changes to SqlAlwaysOnService
   - BREAKING CHANGE: Parameters SQLServer and SQLInstanceName has been renamed
     to ServerName and InstanceName respectively
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
 - Changes to SqlDatabase
   - BREAKING CHANGE: Parameters SQLServer and SQLInstanceName has been renamed
     to ServerName and InstanceName respectively
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
 - Changes SqlDatabaseDefaultLocation
   - BREAKING CHANGE: Parameters SQLServer and SQLInstanceName has been renamed
     to ServerName and InstanceName respectively
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
 - Changes to SqlDatabaseOwner
   - BREAKING CHANGE: Parameters SQLServer and SQLInstanceName has been renamed
     to ServerName and InstanceName respectively
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
 - Changes to SqlDatabasePermission
   - BREAKING CHANGE: Parameters SQLServer and SQLInstanceName has been renamed
     to ServerName and InstanceName respectively
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
 - Changes to SqlDatabaseRecoveryModel
   - BREAKING CHANGE: Parameters SQLServer and SQLInstanceName has been renamed
     to ServerName and InstanceName respectively
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
 - Changes to SqlDatabaseRole
   - BREAKING CHANGE: Parameters SQLServer and SQLInstanceName has been renamed
     to ServerName and InstanceName respectively
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
 - Changes to SqlRS
   - BREAKING CHANGE: Parameters RSSQLServer and RSSQLInstanceName has been renamed
     to DatabaseServerName and DatabaseInstanceName respectively
-    ([issue #923](https://github.com/dsccommunity/SqlServerDsc/issues/923)).
+    ([issue #923](https://github.com/dsccommunity/SqlServerCustomDsc/issues/923)).
 - Changes to SqlServerConfiguration
   - BREAKING CHANGE: Parameters SQLServer and SQLInstanceName has been renamed
     to ServerName and InstanceName respectively
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
 - Changes to SqlServerEndpoint
   - BREAKING CHANGE: Parameters SQLServer and SQLInstanceName has been renamed
     to ServerName and InstanceName respectively
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
 - Changes to SqlServerEndpointPermission
   - BREAKING CHANGE: Parameter NodeName has been renamed to ServerName
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
   - Now the examples files have a shorter name so that resources will not fail
-    to compile in Azure Automation ([issue #934](https://github.com/dsccommunity/SqlServerDsc/issues/934)).
+    to compile in Azure Automation ([issue #934](https://github.com/dsccommunity/SqlServerCustomDsc/issues/934)).
 - Changes to SqlServerEndpointState
   - BREAKING CHANGE: Parameter NodeName has been renamed to ServerName
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
 - Changes to SqlServerLogin
   - BREAKING CHANGE: Parameters SQLServer and SQLInstanceName has been renamed
     to ServerName and InstanceName respectively
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
 - Changes to SqlServerMaxDop
   - BREAKING CHANGE: Parameters SQLServer and SQLInstanceName has been renamed
     to ServerName and InstanceName respectively
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
 - Changes to SqlServerMemory
   - BREAKING CHANGE: Parameters SQLServer and SQLInstanceName has been renamed
     to ServerName and InstanceName respectively
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
 - Changes to SqlServerNetwork
   - BREAKING CHANGE: Parameters SQLServer has been renamed to ServerName
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
 - Changes to SqlServerPermission
   - BREAKING CHANGE: Parameter NodeName has been renamed to ServerName
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
 - Changes to SqlServerRole
   - BREAKING CHANGE: Parameters SQLServer and SQLInstanceName has been renamed
     to ServerName and InstanceName respectively
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
 - Changes to SqlServerServiceAccount
   - BREAKING CHANGE: Parameters SQLServer and SQLInstanceName has been renamed
     to ServerName and InstanceName respectively
-    ([issue #308](https://github.com/dsccommunity/SqlServerDsc/issues/308)).
+    ([issue #308](https://github.com/dsccommunity/SqlServerCustomDsc/issues/308)).
 
 ## [9.0.0.0] - 2017-11-15
 
@@ -1450,60 +1450,60 @@ in a future release.
   - Fixes broken links to issues in the CHANGELOG.md.
 - Changes to xSQLServerDatabase
   - Added parameter to specify collation for a database to be different from server
-    collation ([issue #767](https://github.com/dsccommunity/SqlServerDsc/issues/767)).
+    collation ([issue #767](https://github.com/dsccommunity/SqlServerCustomDsc/issues/767)).
   - Fixed unit tests for Get-TargetResource to ensure correctly testing return
-    values ([issue #849](https://github.com/dsccommunity/SqlServerDsc/issues/849))
+    values ([issue #849](https://github.com/dsccommunity/SqlServerCustomDsc/issues/849))
 - Changes to xSQLServerAlwaysOnAvailabilityGroup
   - Refactored the unit tests to allow them to be more user friendly and to test
     additional SQLServer variations.
     - Each test will utilize the Import-SQLModuleStub to ensure the correct
-      module is loaded ([issue #784](https://github.com/dsccommunity/SqlServerDsc/issues/784)).
+      module is loaded ([issue #784](https://github.com/dsccommunity/SqlServerCustomDsc/issues/784)).
   - Fixed an issue when setting the SQLServer parameter to a Fully Qualified
-    Domain Name (FQDN) ([issue #468](https://github.com/dsccommunity/SqlServerDsc/issues/468)).
+    Domain Name (FQDN) ([issue #468](https://github.com/dsccommunity/SqlServerCustomDsc/issues/468)).
   - Fixed the logic so that if a parameter is not supplied to the resource, the
     resource will not attempt to apply the defaults on subsequent checks
-    ([issue #517](https://github.com/dsccommunity/SqlServerDsc/issues/517)).
+    ([issue #517](https://github.com/dsccommunity/SqlServerCustomDsc/issues/517)).
   - Made the resource cluster aware. When ProcessOnlyOnActiveNode is specified,
     the resource will only determine if a change is needed if the target node
-    is the active host of the SQL Server instance ([issue #868](https://github.com/dsccommunity/SqlServerDsc/issues/868)).
+    is the active host of the SQL Server instance ([issue #868](https://github.com/dsccommunity/SqlServerCustomDsc/issues/868)).
 - Changes to xSQLServerAlwaysOnAvailabilityGroupDatabaseMembership
   - Made the resource cluster aware. When ProcessOnlyOnActiveNode is specified,
     the resource will only determine if a change is needed if the target node
-    is the active host of the SQL Server instance ([issue #869](https://github.com/dsccommunity/SqlServerDsc/issues/869)).
+    is the active host of the SQL Server instance ([issue #869](https://github.com/dsccommunity/SqlServerCustomDsc/issues/869)).
 - Changes to xSQLServerAlwaysOnAvailabilityGroupReplica
   - Made the resource cluster aware. When ProcessOnlyOnActiveNode is specified,
     the resource will only determine if a change is needed if the target node is
-    the active host of the SQL Server instance ([issue #870](https://github.com/dsccommunity/SqlServerDsc/issues/870)).
+    the active host of the SQL Server instance ([issue #870](https://github.com/dsccommunity/SqlServerCustomDsc/issues/870)).
 - Added the CommonTestHelper.psm1 to store common testing functions.
   - Added the Import-SQLModuleStub function to ensure the correct version of the
-    module stubs are loaded ([issue #784](https://github.com/dsccommunity/SqlServerDsc/issues/784)).
+    module stubs are loaded ([issue #784](https://github.com/dsccommunity/SqlServerCustomDsc/issues/784)).
 - Changes to xSQLServerMemory
   - Made the resource cluster aware. When ProcessOnlyOnActiveNode is specified,
     the resource will only determine if a change is needed if the target node
-    is the active host of the SQL Server instance ([issue #867](https://github.com/dsccommunity/SqlServerDsc/issues/867)).
+    is the active host of the SQL Server instance ([issue #867](https://github.com/dsccommunity/SqlServerCustomDsc/issues/867)).
 - Changes to xSQLServerNetwork
   - BREAKING CHANGE: Renamed parameter TcpDynamicPorts to TcpDynamicPort and
-    changed type to Boolean ([issue #534](https://github.com/dsccommunity/SqlServerDsc/issues/534)).
+    changed type to Boolean ([issue #534](https://github.com/dsccommunity/SqlServerCustomDsc/issues/534)).
   - Resolved issue when switching from dynamic to static port.
-    configuration ([issue #534](https://github.com/dsccommunity/SqlServerDsc/issues/534)).
+    configuration ([issue #534](https://github.com/dsccommunity/SqlServerCustomDsc/issues/534)).
   - Added localization (en-US) for all strings in resource and unit tests
-    ([issue #618](https://github.com/dsccommunity/SqlServerDsc/issues/618)).
+    ([issue #618](https://github.com/dsccommunity/SqlServerCustomDsc/issues/618)).
   - Updated examples to reflect new parameters.
 - Changes to xSQLServerRSConfig
   - Added examples
 - Added resource
   - xSQLServerDatabaseDefaultLocation
-    ([issue #656](https://github.com/dsccommunity/SqlServerDsc/issues/656))
+    ([issue #656](https://github.com/dsccommunity/SqlServerCustomDsc/issues/656))
 - Changes to xSQLServerEndpointPermission
   - Fixed a problem when running the tests locally in a PowerShell console it
-    would ask for parameters ([issue #897](https://github.com/dsccommunity/SqlServerDsc/issues/897)).
+    would ask for parameters ([issue #897](https://github.com/dsccommunity/SqlServerCustomDsc/issues/897)).
 - Changes to xSQLServerAvailabilityGroupListener
   - Fixed a problem when running the tests locally in a PowerShell console it
-    would ask for parameters ([issue #897](https://github.com/dsccommunity/SqlServerDsc/issues/897)).
+    would ask for parameters ([issue #897](https://github.com/dsccommunity/SqlServerCustomDsc/issues/897)).
 - Changes to xSQLServerMaxDop
   - Made the resource cluster aware. When ProcessOnlyOnActiveNode is specified,
     the resource will only determine if a change is needed if the target node
-    is the active host of the SQL Server instance ([issue #882](https://github.com/dsccommunity/SqlServerDsc/issues/882)).
+    is the active host of the SQL Server instance ([issue #882](https://github.com/dsccommunity/SqlServerCustomDsc/issues/882)).
 
 ## [8.2.0.0] - 2017-10-05
 
@@ -1514,31 +1514,31 @@ in a future release.
     the SQLPS module folders are renamed to not disturb the units test, but
     can be renamed back by the integration tests xSQLServerSetup so that the
     integration tests can run successfully
-    ([issue #774](https://github.com/dsccommunity/SqlServerDsc/issues/774)).
+    ([issue #774](https://github.com/dsccommunity/SqlServerCustomDsc/issues/774)).
   - Changed so the maximum version to be installed is 4.0.6.0, when running unit
     tests in AppVeyor. Quick fix until we can resolve the unit tests (see
-    [issue #807](https://github.com/dsccommunity/SqlServerDsc/issues/807)).
+    [issue #807](https://github.com/dsccommunity/SqlServerCustomDsc/issues/807)).
   - Moved the code block, that contains workarounds in appveyor.yml, so it is run
     during the install phase instead of the test phase.
-  - Fix problem with tests breaking with Pester 4.0.7 ([issue #807](https://github.com/dsccommunity/SqlServerDsc/issues/807)).
+  - Fix problem with tests breaking with Pester 4.0.7 ([issue #807](https://github.com/dsccommunity/SqlServerCustomDsc/issues/807)).
 - Changes to xSQLServerHelper
   - Changes to Connect-SQL and Import-SQLPSModule
     - Now it correctly loads the correct assemblies when SqlServer module is
-      present ([issue #649](https://github.com/dsccommunity/SqlServerDsc/issues/649)).
+      present ([issue #649](https://github.com/dsccommunity/SqlServerCustomDsc/issues/649)).
     - Now SQLPS module will be correctly loaded (discovered) after installation
       of SQL Server. Previously resources depending on SQLPS module could fail
       because SQLPS was not found after installation because the PSModulePath
       environment variable in the (LCM) PowerShell session did not contain the new
       module path.
-  - Added new helper function "Test-ClusterPermissions" ([issue #446](https://github.com/dsccommunity/SqlServerDsc/issues/446)).
+  - Added new helper function "Test-ClusterPermissions" ([issue #446](https://github.com/dsccommunity/SqlServerCustomDsc/issues/446)).
 - Changes to xSQLServerSetup
   - Fixed an issue with trailing slashes in the 'UpdateSource' property
-    ([issue #720](https://github.com/dsccommunity/SqlServerDsc/issues/720)).
+    ([issue #720](https://github.com/dsccommunity/SqlServerCustomDsc/issues/720)).
   - Fixed so that the integration test renames back the SQLPS module folders if
     they was renamed by AppVeyor (in the appveyor.yml file)
-    ([issue #774](https://github.com/dsccommunity/SqlServerDsc/issues/774)).
+    ([issue #774](https://github.com/dsccommunity/SqlServerCustomDsc/issues/774)).
   - Fixed so integration test does not write warnings when SQLPS module is loaded
-    ([issue #798](https://github.com/dsccommunity/SqlServerDsc/issues/798)).
+    ([issue #798](https://github.com/dsccommunity/SqlServerCustomDsc/issues/798)).
   - Changes to integration tests.
     - Moved the configuration block from the MSFT\_xSQLServerSetup.Integration.Tests.ps1
       to the MSFT\_xSQLServerSetup.config.ps1 to align with the other integration
@@ -1551,11 +1551,11 @@ in a future release.
     - Changed so that only one of the Modules-folder for the SQLPS PowerShell module
       for SQL Server 2016 is renamed back so it can be used with the integration
       tests. There was an issue when more than one SQLPS module was present (see
-      more information in [issue #806](https://github.com/dsccommunity/SqlServerDsc/issues/806)).
+      more information in [issue #806](https://github.com/dsccommunity/SqlServerCustomDsc/issues/806)).
     - Fixed wrong variable name for SQL service credential. It was using the
       integration test variable name instead of the parameter name.
     - Added ErrorAction 'Stop' to the cmdlet Start-DscConfiguration
-      ([issue #824](https://github.com/dsccommunity/SqlServerDsc/issues/824)).
+      ([issue #824](https://github.com/dsccommunity/SqlServerCustomDsc/issues/824)).
 - Changes to xSQLServerAlwaysOnAvailabilityGroup
   - Change the check of the values entered as parameter for
     BasicAvailabilityGroup. It is a boolean, hence it was not possible to
@@ -1567,7 +1567,7 @@ in a future release.
     Group is created.
   - Use the new helper function "Test-ClusterPermissions".
   - Refactored the unit tests to allow them to be more user friendly.
-  - Added the following read-only properties to the schema ([issue #476](https://github.com/dsccommunity/SqlServerDsc/issues/476))
+  - Added the following read-only properties to the schema ([issue #476](https://github.com/dsccommunity/SqlServerCustomDsc/issues/476))
     - EndpointPort
     - EndpointURL
     - SQLServerNetName
@@ -1575,24 +1575,24 @@ in a future release.
   - Use the Get-PrimaryReplicaServerObject helper function.
 - Changes to xSQLServerAlwaysOnAvailabilityGroupReplica
   - Fixed the formatting for the AvailabilityGroupNotFound error.
-  - Added the following read-only properties to the schema ([issue #477](https://github.com/dsccommunity/SqlServerDsc/issues/477))
+  - Added the following read-only properties to the schema ([issue #477](https://github.com/dsccommunity/SqlServerCustomDsc/issues/477))
     - EndpointPort
     - EndpointURL
   - Use the new helper function "Test-ClusterPermissions".
   - Use the Get-PrimaryReplicaServerObject helper function
 - Changes to xSQLServerHelper
   - Fixed Connect-SQL by ensuring the Status property returns 'Online' prior to
-    returning the SQL Server object ([issue #333](https://github.com/dsccommunity/SqlServerDsc/issues/333)).
+    returning the SQL Server object ([issue #333](https://github.com/dsccommunity/SqlServerCustomDsc/issues/333)).
 - Changes to xSQLServerRole
   - Running Get-DscConfiguration no longer throws an error saying property
-    Members is not an array ([issue #790](https://github.com/dsccommunity/SqlServerDsc/issues/790)).
+    Members is not an array ([issue #790](https://github.com/dsccommunity/SqlServerCustomDsc/issues/790)).
 - Changes to xSQLServerMaxDop
   - Fixed error where Measure-Object cmdlet would fail claiming it could not
-    find the specified property ([issue #801](https://github.com/dsccommunity/SqlServerDsc/issues/801))
+    find the specified property ([issue #801](https://github.com/dsccommunity/SqlServerCustomDsc/issues/801))
 - Changes to xSQLServerAlwaysOnService
-  - Added integration test ([issue #736](https://github.com/dsccommunity/SqlServerDsc/issues/736)).
+  - Added integration test ([issue #736](https://github.com/dsccommunity/SqlServerCustomDsc/issues/736)).
     - Added ErrorAction 'Stop' to the cmdlet Start-DscConfiguration
-      ([issue #824](https://github.com/dsccommunity/SqlServerDsc/issues/824)).
+      ([issue #824](https://github.com/dsccommunity/SqlServerCustomDsc/issues/824)).
 - Changes to SMO.cs
   - Added default properties to the Server class
     - AvailabilityGroups
@@ -1602,23 +1602,23 @@ in a future release.
   - Added default properties to the AvailabilityReplicas class
     - AvailabilityDatabases
     - AvailabilityReplicas
-- Added new resource xSQLServerAccount ([issue #706](https://github.com/dsccommunity/SqlServerDsc/issues/706))
+- Added new resource xSQLServerAccount ([issue #706](https://github.com/dsccommunity/SqlServerCustomDsc/issues/706))
   - Added localization support for all strings
   - Added examples for usage
 - Changes to xSQLServerRSConfig
   - No longer returns a null value from Test-TargetResource when Reporting
-    Services has not been initialized ([issue #822](https://github.com/dsccommunity/SqlServerDsc/issues/822)).
+    Services has not been initialized ([issue #822](https://github.com/dsccommunity/SqlServerCustomDsc/issues/822)).
   - Fixed so that when two Reporting Services are installed for the same major
-    version the resource does not throw an error ([issue #819](https://github.com/dsccommunity/SqlServerDsc/issues/819)).
+    version the resource does not throw an error ([issue #819](https://github.com/dsccommunity/SqlServerCustomDsc/issues/819)).
   - Now the resource will restart the Reporting Services service after
-    initializing ([issue #592](https://github.com/dsccommunity/SqlServerDsc/issues/592)).
+    initializing ([issue #592](https://github.com/dsccommunity/SqlServerCustomDsc/issues/592)).
     This will enable the Reports site to work.
-  - Added integration test ([issue #753](https://github.com/dsccommunity/SqlServerDsc/issues/753)).
+  - Added integration test ([issue #753](https://github.com/dsccommunity/SqlServerCustomDsc/issues/753)).
   - Added support for configuring URL reservations and virtual directory names
-    ([issue #570](https://github.com/dsccommunity/SqlServerDsc/issues/570))
+    ([issue #570](https://github.com/dsccommunity/SqlServerCustomDsc/issues/570))
 - Added resource
   - xSQLServerDatabaseDefaultLocation
-    ([issue #656](https://github.com/dsccommunity/SqlServerDsc/issues/656))
+    ([issue #656](https://github.com/dsccommunity/SqlServerCustomDsc/issues/656))
 
 ## [8.1.0.0] - 2017-08-23
 
@@ -1632,15 +1632,15 @@ in a future release.
     three parameters.
   - Minor style changes to the unit tests for CommonResourceHelper.
   - Changes to xSQLServerHelper
-    - Added Swedish localization ([issue #695](https://github.com/dsccommunity/SqlServerDsc/issues/695)).
-  - Opt-in for module files common tests ([issue #702](https://github.com/dsccommunity/SqlServerDsc/issues/702)).
+    - Added Swedish localization ([issue #695](https://github.com/dsccommunity/SqlServerCustomDsc/issues/695)).
+  - Opt-in for module files common tests ([issue #702](https://github.com/dsccommunity/SqlServerCustomDsc/issues/702)).
     - Removed Byte Order Mark (BOM) from the files; CommonResourceHelper.psm1,
       MSFT\_xSQLServerAvailabilityGroupListener.psm1, MSFT\_xSQLServerConfiguration.psm1,
       MSFT\_xSQLServerEndpointPermission.psm1, MSFT\_xSQLServerEndpointState.psm1,
       MSFT\_xSQLServerNetwork.psm1, MSFT\_xSQLServerPermission.psm1,
       MSFT\_xSQLServerReplication.psm1, MSFT\_xSQLServerScript.psm1,
       SQLPSStub.psm1, SQLServerStub.psm1.
-  - Opt-in for script files common tests ([issue #707](https://github.com/dsccommunity/SqlServerDsc/issues/707)).
+  - Opt-in for script files common tests ([issue #707](https://github.com/dsccommunity/SqlServerCustomDsc/issues/707)).
     - Removed Byte Order Mark (BOM) from the files; DSCClusterSqlBuild.ps1,
       DSCFCISqlBuild.ps1, DSCSqlBuild.ps1, DSCSQLBuildEncrypted.ps1,
       SQLPush_SingleServer.ps1, 1-AddAvailabilityGroupListenerWithSameNameAsVCO.ps1,
@@ -1659,10 +1659,10 @@ in a future release.
       1-AddServerPermissionForLogin.ps1, 2-RemoveServerPermissionForLogin.ps1,
       1-ConfigureInstanceAsDistributor.ps1, 2-ConfigureInstanceAsPublisher.ps1,
       1-WaitForASingleClusterGroup.ps1, 2-WaitForMultipleClusterGroups.ps1.
-  - Updated year to 2017 in license file ([issue #711](https://github.com/dsccommunity/SqlServerDsc/issues/711)).
+  - Updated year to 2017 in license file ([issue #711](https://github.com/dsccommunity/SqlServerCustomDsc/issues/711)).
   - Code style clean-up throughout the module to align against the Style Guideline.
   - Fixed typos and the use of wrong parameters in unit tests which was found
-    after release of new version of Pester ([issue #773](https://github.com/dsccommunity/SqlServerDsc/issues/773)).
+    after release of new version of Pester ([issue #773](https://github.com/dsccommunity/SqlServerCustomDsc/issues/773)).
 - Changes to xSQLServerAlwaysOnService
   - Added resource description in README.md.
   - Updated parameters descriptions in comment-based help, schema.mof and README.md.
@@ -1675,20 +1675,20 @@ in a future release.
   - Added examples (issue #633)
     - 1-EnableAlwaysOn.ps1
     - 2-DisableAlwaysOn.ps1
-  - Fixed PS Script Analyzer errors ([issue #724](https://github.com/dsccommunity/SqlServerDsc/issues/724))
+  - Fixed PS Script Analyzer errors ([issue #724](https://github.com/dsccommunity/SqlServerCustomDsc/issues/724))
   - Casting the result of the property IsHadrEnabled to [System.Boolean] so that
-    $null is never returned, which resulted in an exception ([issue #763](https://github.com/dsccommunity/SqlServerDsc/issues/763)).
+    $null is never returned, which resulted in an exception ([issue #763](https://github.com/dsccommunity/SqlServerCustomDsc/issues/763)).
 - Changes to xSQLServerDatabasePermission
-  - Fixed PS Script Analyzer errors ([issue #725](https://github.com/dsccommunity/SqlServerDsc/issues/725))
+  - Fixed PS Script Analyzer errors ([issue #725](https://github.com/dsccommunity/SqlServerCustomDsc/issues/725))
 - Changes to xSQLServerScript
-  - Fixed PS Script Analyzer errors ([issue #728](https://github.com/dsccommunity/SqlServerDsc/issues/728))
+  - Fixed PS Script Analyzer errors ([issue #728](https://github.com/dsccommunity/SqlServerCustomDsc/issues/728))
 - Changes to xSQLServerSetup
-  - Added Swedish localization ([issue #695](https://github.com/dsccommunity/SqlServerDsc/issues/695)).
+  - Added Swedish localization ([issue #695](https://github.com/dsccommunity/SqlServerCustomDsc/issues/695)).
   - Now Get-TargetResource correctly returns an array for property ASSysAdminAccounts,
     and no longer throws an error when there is just one Analysis Services
     administrator (issue #691).
-  - Added a simple integration test ([issue #709](https://github.com/dsccommunity/SqlServerDsc/issues/709)).
-  - Fixed PS Script Analyzer errors ([issue #729](https://github.com/dsccommunity/SqlServerDsc/issues/729))
+  - Added a simple integration test ([issue #709](https://github.com/dsccommunity/SqlServerCustomDsc/issues/709)).
+  - Fixed PS Script Analyzer errors ([issue #729](https://github.com/dsccommunity/SqlServerCustomDsc/issues/729))
 
 ## [8.0.0.0] - 2017-07-12
 
@@ -2219,7 +2219,7 @@ in a future release.
   - Added examples to show how to authenticate using either SQL or Windows
     authentication.
   - A recent issue showed that there is a known problem running this resource
-    using PowerShell 4.0. For more information, see [issue #273](https://github.com/dsccommunity/SqlServerDsc/issues/273)
+    using PowerShell 4.0. For more information, see [issue #273](https://github.com/dsccommunity/SqlServerCustomDsc/issues/273)
 - Changes to xSQLServerFirewall
   - BREAKING CHANGE: Removed parameter SourceFolder.
   - BREAKING CHANGE: Removed default value "$PSScriptRoot\..\..\" from parameter

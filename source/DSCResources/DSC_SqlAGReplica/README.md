@@ -14,9 +14,9 @@ Always On Availability Group Replica.
   The solution is to install the PowerShell module [_SqlServer_](https://www.powershellgallery.com/packages/SqlServer)
   from the PowerShell Gallery. The module must be installed in a machine-wide
   path of `env:PSModulePath` so it is found when LCM runs the DSC resource.
-  This will also make all SqlServerDsc DSC resources use the PowerShell
+  This will also make all SqlServerCustomDsc DSC resources use the PowerShell
   module _SqlServer_ instead of the PowerShell module _SQLPS_.
 
 ## Known issues
 
-All issues are not listed here, see [here for all open issues](https://github.com/dsccommunity/SqlServerDsc/issues?q=is%3Aissue+is%3Aopen+in%3Atitle+SqlAGReplica).
+All issues are not listed here, see [here for all open issues](https://github.com/dsccommunity/SqlServerCustomDsc/issues?q=is%3Aissue+is%3Aopen+in%3Atitle+SqlAGReplica).

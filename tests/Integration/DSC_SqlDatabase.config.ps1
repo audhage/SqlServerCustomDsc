@@ -46,7 +46,7 @@ else
 #>
 Configuration DSC_SqlDatabase_AddDatabase1_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -70,7 +70,7 @@ Configuration DSC_SqlDatabase_AddDatabase1_Config
 #>
 Configuration DSC_SqlDatabase_AddDatabase2_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -95,7 +95,7 @@ Configuration DSC_SqlDatabase_AddDatabase2_Config
 #>
 Configuration DSC_SqlDatabase_AddDatabase3_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -120,7 +120,7 @@ Configuration DSC_SqlDatabase_AddDatabase3_Config
 #>
 Configuration DSC_SqlDatabase_AddDatabase4_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -145,7 +145,7 @@ Configuration DSC_SqlDatabase_AddDatabase4_Config
 #>
 Configuration DSC_SqlDatabase_AddDatabase5_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -170,7 +170,7 @@ Configuration DSC_SqlDatabase_AddDatabase5_Config
 #>
 Configuration DSC_SqlDatabase_RemoveDatabase2_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -194,7 +194,7 @@ Configuration DSC_SqlDatabase_RemoveDatabase2_Config
 #>
 Configuration DSC_SqlDatabase_RemoveDatabases_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {

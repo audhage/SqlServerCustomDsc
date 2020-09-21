@@ -78,7 +78,7 @@ Configuration DSC_SqlServiceAccount_CreateDependencies_Config
 #>
 Configuration DSC_SqlServiceAccount_DatabaseEngine_DefaultInstance_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -106,7 +106,7 @@ Configuration DSC_SqlServiceAccount_DatabaseEngine_DefaultInstance_Config
 #>
 Configuration DSC_SqlServiceAccount_SqlServerAgent_DefaultInstance_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -137,7 +137,7 @@ Configuration DSC_SqlServiceAccount_SqlServerAgent_DefaultInstance_Config
 #>
 Configuration DSC_SqlServiceAccount_DatabaseEngine_DefaultInstance_Restore_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -165,7 +165,7 @@ Configuration DSC_SqlServiceAccount_DatabaseEngine_DefaultInstance_Restore_Confi
 #>
 Configuration DSC_SqlServiceAccount_SqlServerAgent_DefaultInstance_Restore_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -220,7 +220,7 @@ Configuration DSC_SqlServiceAccount_StopSqlServerDefaultInstance_Config
 #>
 Configuration DSC_SqlServiceAccount_DatabaseEngine_NamedInstance_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -248,7 +248,7 @@ Configuration DSC_SqlServiceAccount_DatabaseEngine_NamedInstance_Config
 #>
 Configuration DSC_SqlServiceAccount_SqlServerAgent_NamedInstance_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -279,7 +279,7 @@ Configuration DSC_SqlServiceAccount_SqlServerAgent_NamedInstance_Config
 #>
 Configuration DSC_SqlServiceAccount_DatabaseEngine_NamedInstance_Restore_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -307,7 +307,7 @@ Configuration DSC_SqlServiceAccount_DatabaseEngine_NamedInstance_Restore_Config
 #>
 Configuration DSC_SqlServiceAccount_SqlServerAgent_NamedInstance_Restore_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {

@@ -39,7 +39,7 @@ else
 #>
 Configuration DSC_SqlAgentAlert_Add_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -64,7 +64,7 @@ Configuration DSC_SqlAgentAlert_Add_Config
 #>
 Configuration DSC_SqlAgentAlert_Remove_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {

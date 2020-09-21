@@ -17,10 +17,10 @@ server.
 ## Known issues
 
 * This resource does not currently have full SSL support, please see
-  [issue #587](https://github.com/dsccommunity/SqlServerDsc/issues/587) for more
+  [issue #587](https://github.com/dsccommunity/SqlServerCustomDsc/issues/587) for more
   information.
 
-All issues are not listed here, see [here for all open issues](https://github.com/dsccommunity/SqlServerDsc/issues?q=is%3Aissue+is%3Aopen+in%3Atitle+SqlRS).
+All issues are not listed here, see [here for all open issues](https://github.com/dsccommunity/SqlServerCustomDsc/issues?q=is%3Aissue+is%3Aopen+in%3Atitle+SqlRS).
 
 ## Known error messages
 

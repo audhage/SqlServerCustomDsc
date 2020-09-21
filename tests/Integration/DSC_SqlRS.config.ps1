@@ -70,7 +70,7 @@ Configuration DSC_SqlRS_CreateDependencies_Config
 {
     Import-DscResource -ModuleName 'PSDscResources' -ModuleVersion '2.12.0.0'
     Import-DscResource -ModuleName 'StorageDsc' -ModuleVersion '4.9.0.0'
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -153,7 +153,7 @@ Configuration DSC_SqlRS_CreateDependencies_Config
 #>
 Configuration DSC_SqlRS_InstallReportingServices_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -183,7 +183,7 @@ Configuration DSC_SqlRS_InstallReportingServices_Config
 #>
 Configuration DSC_SqlRS_InstallReportingServices_ConfigureSsl_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -214,7 +214,7 @@ Configuration DSC_SqlRS_InstallReportingServices_ConfigureSsl_Config
 #>
 Configuration DSC_SqlRS_InstallReportingServices_RestoreToNoSsl_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {

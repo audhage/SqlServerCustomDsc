@@ -32,14 +32,14 @@ The `SqlSetup` DSC resource installs SQL Server on the target node.
 - When installing _SQL Server Analysis Services_ the account used to start
   the service must have the correct permissions in directory tree for the
   data folders. If not the service can fail with an access denied error.
-  For more information see the [issue #1443](https://github.com/dsccommunity/SqlServerDsc/issues/1443).
+  For more information see the [issue #1443](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1443).
   To change permissions on folders the DSC resource [FileSystemAccessRule](https://github.com/dsccommunity/FileSystemDsc)
   can be used.
 - On certain operating systems, when using least privilege for the service
   account for the _SQL Server Database Engine_ the security policy setting
   [Network access: Restrict clients allowed to make remote calls to SAM](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/network-access-restrict-clients-allowed-to-make-remote-sam-calls)
   can result in an access denied when validating accounts in the domain.
-  For more information see the [issue #1559](https://github.com/dsccommunity/SqlServerDsc/issues/1559).
+  For more information see the [issue #1559](https://github.com/dsccommunity/SqlServerCustomDsc/issues/1559).
 
 ## Features supported
 
@@ -149,4 +149,4 @@ Flag | Description
 
 ## Known issues
 
-All issues are not listed here, see [here for all open issues](https://github.com/dsccommunity/SqlServerDsc/issues?q=is%3Aissue+is%3Aopen+in%3Atitle+SqlSetup).
+All issues are not listed here, see [here for all open issues](https://github.com/dsccommunity/SqlServerCustomDsc/issues?q=is%3Aissue+is%3Aopen+in%3Atitle+SqlSetup).

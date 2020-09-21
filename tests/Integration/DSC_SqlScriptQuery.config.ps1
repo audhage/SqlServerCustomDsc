@@ -60,7 +60,7 @@ CREATE DATABASE [$(DatabaseName)]
 #>
 Configuration DSC_SqlScriptQuery_RunSqlScriptQueryAsWindowsUser_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -90,7 +90,7 @@ Configuration DSC_SqlScriptQuery_RunSqlScriptQueryAsWindowsUser_Config
 #>
 Configuration DSC_SqlScriptQuery_RunSqlScriptQueryAsSqlUser_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -130,7 +130,7 @@ Configuration DSC_SqlScriptQuery_RunSqlScriptQueryAsSqlUser_Config
 #>
 Configuration DSC_SqlScriptQuery_RunSqlScriptQueryWithVariablesDisabled_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -160,7 +160,7 @@ Configuration DSC_SqlScriptQuery_RunSqlScriptQueryWithVariablesDisabled_Config
 #>
 Configuration DSC_SqlScriptQuery_RemoveDatabase3_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {

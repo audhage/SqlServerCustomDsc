@@ -11,7 +11,7 @@ if (-not (Test-BuildCategory -Type 'Unit'))
     return
 }
 
-$script:dscModuleName = 'SqlServerDsc'
+$script:dscModuleName = 'SqlServerCustomDsc'
 $script:dscResourceName = 'DSC_SqlMaxDop'
 
 function Invoke-TestSetup

@@ -245,7 +245,7 @@ Configuration DSC_SqlSetup_CreateDependencies_Config
 #>
 Configuration DSC_SqlSetup_InstallDatabaseEngineNamedInstanceAsSystem_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -353,7 +353,7 @@ Configuration DSC_SqlSetup_StopServicesInstance_Config
 #>
 Configuration DSC_SqlSetup_InstallDatabaseEngineDefaultInstanceAsUser_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -412,7 +412,7 @@ Configuration DSC_SqlSetup_StopSqlServerDefaultInstance_Config
 #>
 Configuration DSC_SqlSetup_InstallTabularAnalysisServicesAsSystem_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {

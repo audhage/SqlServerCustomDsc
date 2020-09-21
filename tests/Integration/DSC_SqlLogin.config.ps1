@@ -54,7 +54,7 @@ else
 Configuration DSC_SqlLogin_CreateDependencies_Config
 {
     Import-DscResource -ModuleName 'PSDscResources' -ModuleVersion '2.12.0.0'
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -123,7 +123,7 @@ Configuration DSC_SqlLogin_CreateDependencies_Config
 #>
 Configuration DSC_SqlLogin_AddLoginDscUser1_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -149,7 +149,7 @@ Configuration DSC_SqlLogin_AddLoginDscUser1_Config
 #>
 Configuration DSC_SqlLogin_AddLoginDscUser2_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -176,7 +176,7 @@ Configuration DSC_SqlLogin_AddLoginDscUser2_Config
 #>
 Configuration DSC_SqlLogin_AddLoginDscUser3_Disabled_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -203,7 +203,7 @@ Configuration DSC_SqlLogin_AddLoginDscUser3_Disabled_Config
 #>
 Configuration DSC_SqlLogin_AddLoginDscUser4_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -235,7 +235,7 @@ Configuration DSC_SqlLogin_AddLoginDscUser4_Config
 #>
 Configuration DSC_SqlLogin_AddLoginDscSqlUsers1_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -261,7 +261,7 @@ Configuration DSC_SqlLogin_AddLoginDscSqlUsers1_Config
 #>
 Configuration DSC_SqlLogin_RemoveLoginDscUser3_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -288,7 +288,7 @@ Configuration DSC_SqlLogin_RemoveLoginDscUser3_Config
 #>
 Configuration DSC_SqlLogin_CleanupDependencies_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {

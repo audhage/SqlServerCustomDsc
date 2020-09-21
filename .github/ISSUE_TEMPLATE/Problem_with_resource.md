@@ -41,7 +41,7 @@ about: If you have a problem, bug, or enhancement with a resource in this resour
 #### SQL Server PowerShell modules present on the target node
 <!--
     To help with this information, please run this command:
-    Get-Module -Name '*sql*' -ListAvailable | ? Name -ne 'SqlServerDsc' | ft Name,Version,Path
+    Get-Module -Name '*sql*' -ListAvailable | ? Name -ne 'SqlServerCustomDsc' | ft Name,Version,Path
 -->
 
 #### The operating system the target node is running
@@ -69,5 +69,5 @@ about: If you have a problem, bug, or enhancement with a resource in this resour
 #### Version of the DSC module that was used
 <!--
     To help with this information, please run this command:
-    Get-Module -Name 'SqlServerDsc' -ListAvailable | ft Name,Version,Path
+    Get-Module -Name 'SqlServerCustomDsc' -ListAvailable | ft Name,Version,Path
 -->

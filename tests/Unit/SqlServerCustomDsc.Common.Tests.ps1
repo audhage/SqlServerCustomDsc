@@ -1,6 +1,6 @@
 <#
     .SYNOPSIS
-        Automated unit test for helper functions in module SqlServerDsc.Common.
+        Automated unit test for helper functions in module SqlServerCustomDsc.Common.
 #>
 
 Import-Module -Name (Join-Path -Path $PSScriptRoot -ChildPath '..\TestHelpers\CommonTestHelper.psm1')
@@ -10,8 +10,8 @@ if (-not (Test-BuildCategory -Type 'Unit'))
     return
 }
 
-$script:dscModuleName = 'SqlServerDsc'
-$script:subModuleName = 'SqlServerDsc.Common'
+$script:dscModuleName = 'SqlServerCustomDsc'
+$script:subModuleName = 'SqlServerCustomDsc.Common'
 
 #region HEADER
 Remove-Module -Name $script:subModuleName -Force -ErrorAction 'SilentlyContinue'
@@ -32,7 +32,7 @@ Add-Type -Path (Join-Path -Path (Join-Path -Path $PSScriptRoot -ChildPath 'Stubs
 Import-SQLModuleStub
 
 InModuleScope $script:subModuleName {
-    Describe 'SqlServerDsc.Common\Get-RegistryPropertyValue' -Tag 'GetRegistryPropertyValue' {
+    Describe 'SqlServerCustomDsc.Common\Get-RegistryPropertyValue' -Tag 'GetRegistryPropertyValue' {
         BeforeAll {
             $mockWrongRegistryPath = 'HKLM:\SOFTWARE\AnyPath'
             $mockCorrectRegistryPath = 'HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\RS'
@@ -99,7 +99,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Format-Path' -Tag 'FormatPath' {
+    Describe 'SqlServerCustomDsc.Common\Format-Path' -Tag 'FormatPath' {
         BeforeAll {
             $mockCorrectPath = 'C:\Correct\Path'
             $mockPathWithTrailingBackslash = 'C:\Correct\Path\'
@@ -137,7 +137,7 @@ InModuleScope $script:subModuleName {
     }
 
     # Tests only the parts of the code that does not already get tested thru the other tests.
-    Describe 'SqlServerDsc.Common\Copy-ItemWithRobocopy' -Tag 'CopyItemWithRobocopy' {
+    Describe 'SqlServerCustomDsc.Common\Copy-ItemWithRobocopy' -Tag 'CopyItemWithRobocopy' {
         BeforeAll {
             $mockRobocopyExecutableName = 'Robocopy.exe'
             $mockRobocopyExecutableVersionWithoutUnbufferedIO = '6.2.9200.00000'
@@ -433,7 +433,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Invoke-InstallationMediaCopy' -Tag 'InvokeInstallationMediaCopy' {
+    Describe 'SqlServerCustomDsc.Common\Invoke-InstallationMediaCopy' -Tag 'InvokeInstallationMediaCopy' {
         BeforeAll {
             $mockSourcePathGuid = 'cc719562-0f46-4a16-8605-9f8a47c70402'
             $mockDestinationPath = 'C:\Users\user\AppData\Local\Temp'
@@ -566,7 +566,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Connect-UncPath' -Tag 'ConnectUncPath' {
+    Describe 'SqlServerCustomDsc.Common\Connect-UncPath' -Tag 'ConnectUncPath' {
         BeforeAll {
             $mockSourcePathUNC = '\\server\share'
 
@@ -660,7 +660,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Disconnect-UncPath' -Tag 'DisconnectUncPath' {
+    Describe 'SqlServerCustomDsc.Common\Disconnect-UncPath' -Tag 'DisconnectUncPath' {
         BeforeAll {
             $mockSourcePathUNC = '\\server\share'
 
@@ -682,7 +682,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Test-PendingRestart' -Tag 'TestPendingRestart' {
+    Describe 'SqlServerCustomDsc.Common\Test-PendingRestart' -Tag 'TestPendingRestart' {
         Context 'When there is a pending reboot' {
             BeforeAll {
                 Mock -CommandName Get-RegistryPropertyValue -MockWith {
@@ -712,7 +712,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Start-SqlSetupProcess' -Tag 'StartSqlSetupProcess' {
+    Describe 'SqlServerCustomDsc.Common\Start-SqlSetupProcess' -Tag 'StartSqlSetupProcess' {
         Context 'When starting a process successfully' {
             It 'Should return exit code 0' {
                 $startSqlSetupProcessParameters = @{
@@ -739,7 +739,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Restart-SqlService' -Tag 'RestartSqlService' {
+    Describe 'SqlServerCustomDsc.Common\Restart-SqlService' -Tag 'RestartSqlService' {
         Context 'Restart-SqlService standalone instance' {
             Context 'When the Windows services should be restarted' {
                 BeforeAll {
@@ -999,7 +999,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Restart-SqlClusterService' -Tag 'RestartSqlClusterService' {
+    Describe 'SqlServerCustomDsc.Common\Restart-SqlClusterService' -Tag 'RestartSqlClusterService' {
         Context 'When not clustered instance is found' {
             BeforeAll {
                 Mock -CommandName Get-CimInstance
@@ -1394,7 +1394,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Connect-SQLAnalysis' -Tag 'ConnectSQLAnalysis' {
+    Describe 'SqlServerCustomDsc.Common\Connect-SQLAnalysis' -Tag 'ConnectSQLAnalysis' {
         BeforeAll {
             $mockInstanceName = 'TEST'
 
@@ -1572,7 +1572,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Invoke-Query' -Tag 'InvokeQuery' {
+    Describe 'SqlServerCustomDsc.Common\Invoke-Query' -Tag 'InvokeQuery' {
         BeforeAll {
             $mockExpectedQuery = ''
 
@@ -1870,7 +1870,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Update-AvailabilityGroupReplica' -Tag 'UpdateAvailabilityGroupReplica' {
+    Describe 'SqlServerCustomDsc.Common\Update-AvailabilityGroupReplica' -Tag 'UpdateAvailabilityGroupReplica' {
         Context 'When the Availability Group Replica is altered' {
             It 'Should silently alter the Availability Group Replica' {
                 $availabilityReplica = New-Object -TypeName Microsoft.SqlServer.Management.Smo.AvailabilityReplica
@@ -1904,7 +1904,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Test-LoginEffectivePermissions' -Tag 'TestLoginEffectivePermissions' {
+    Describe 'SqlServerCustomDsc.Common\Test-LoginEffectivePermissions' -Tag 'TestLoginEffectivePermissions' {
         BeforeAll {
             $mockAllServerPermissionsPresent = @(
                 'Connect SQL',
@@ -2018,7 +2018,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Import-SQLPSModule' -Tag 'ImportSQLPSModule' {
+    Describe 'SqlServerCustomDsc.Common\Import-SQLPSModule' -Tag 'ImportSQLPSModule' {
         BeforeAll {
             <#
                 This is the path to the latest version of SQLPS, to test that only the
@@ -2287,7 +2287,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Get-SqlInstanceMajorVersion' -Tag 'GetSqlInstanceMajorVersion' {
+    Describe 'SqlServerCustomDsc.Common\Get-SqlInstanceMajorVersion' -Tag 'GetSqlInstanceMajorVersion' {
         BeforeAll {
             $mockSqlMajorVersion = 13
             $mockInstanceName = 'TEST'
@@ -2369,7 +2369,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Get-PrimaryReplicaServerObject' -Tag 'GetPrimaryReplicaServerObject' {
+    Describe 'SqlServerCustomDsc.Common\Get-PrimaryReplicaServerObject' -Tag 'GetPrimaryReplicaServerObject' {
         BeforeEach {
             $mockServerObject = New-Object -TypeName Microsoft.SqlServer.Management.Smo.Server
             $mockServerObject.DomainInstanceName = 'Server1'
@@ -2441,7 +2441,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Test-AvailabilityReplicaSeedingModeAutomatic' -Tag 'TestAvailabilityReplicaSeedingModeAutomatic' {
+    Describe 'SqlServerCustomDsc.Common\Test-AvailabilityReplicaSeedingModeAutomatic' -Tag 'TestAvailabilityReplicaSeedingModeAutomatic' {
         BeforeAll {
             $mockConnectSql = {
                 $mock = @(
@@ -2563,7 +2563,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Test-ImpersonatePermissions' -Tag 'TestImpersonatePermissions' {
+    Describe 'SqlServerCustomDsc.Common\Test-ImpersonatePermissions' -Tag 'TestImpersonatePermissions' {
         BeforeAll {
             $mockTestLoginEffectivePermissions_ImpersonateAnyLogin_ParameterFilter = {
                 $Permissions -eq @('IMPERSONATE ANY LOGIN')
@@ -2648,7 +2648,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Connect-SQL' -Tag 'ConnectSql' {
+    Describe 'SqlServerCustomDsc.Common\Connect-SQL' -Tag 'ConnectSql' {
         BeforeAll {
             $mockNewObject_MicrosoftDatabaseEngine = {
                 <#
@@ -2691,7 +2691,7 @@ InModuleScope $script:subModuleName {
                             Add-Member -MemberType NoteProperty -Name ConnectAsUserPassword -Value '' -PassThru |
                             Add-Member -MemberType NoteProperty -Name ConnectAsUserName -Value '' -PassThru |
                             Add-Member -MemberType NoteProperty -Name StatementTimeout -Value 600 -PassThru |
-                            Add-Member -MemberType NoteProperty -Name ApplicationName -Value 'SqlServerDsc' -PassThru |
+                            Add-Member -MemberType NoteProperty -Name ApplicationName -Value 'SqlServerCustomDsc' -PassThru |
                             Add-Member -MemberType ScriptMethod -Name Disconnect -Value {
                                 return $true
                             } -PassThru |
@@ -2924,7 +2924,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Split-FullSqlInstanceName' -Tag 'SplitFullSqlInstanceName' {
+    Describe 'SqlServerCustomDsc.Common\Split-FullSqlInstanceName' -Tag 'SplitFullSqlInstanceName' {
         Context 'When the "FullSqlInstanceName" parameter is not supplied' {
             It 'Should throw when the "FullSqlInstanceName" parameter is $null' {
                 { Split-FullSqlInstanceName -FullSqlInstanceName $null } | Should -Throw
@@ -2954,7 +2954,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Test-ClusterPermissions' -Tag 'TestClusterPermissions' {
+    Describe 'SqlServerCustomDsc.Common\Test-ClusterPermissions' -Tag 'TestClusterPermissions' {
         BeforeAll {
             Mock -CommandName Test-LoginEffectivePermissions -MockWith {
                 $mockClusterServicePermissionsPresent
@@ -3043,7 +3043,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Restart-ReportingServicesService' -Tag 'RestartReportingServicesService' {
+    Describe 'SqlServerCustomDsc.Common\Restart-ReportingServicesService' -Tag 'RestartReportingServicesService' {
         BeforeAll {
             $mockGetService = {
                 return @{
@@ -3164,7 +3164,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Test-ActiveNode' -Tag 'TestActiveNode' {
+    Describe 'SqlServerCustomDsc.Common\Test-ActiveNode' -Tag 'TestActiveNode' {
         BeforeAll {
             $mockServerObject = New-Object -TypeName Microsoft.SqlServer.Management.Smo.Server
         }
@@ -3207,7 +3207,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Invoke-SqlScript' -Tag 'InvokeSqlScript' {
+    Describe 'SqlServerCustomDsc.Common\Invoke-SqlScript' -Tag 'InvokeSqlScript' {
         BeforeAll {
             $invokeScriptFileParameters = @{
                 ServerInstance = $env:COMPUTERNAME
@@ -3287,7 +3287,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Get-ServiceAccount' -Tag 'GetServiceAccount' {
+    Describe 'SqlServerCustomDsc.Common\Get-ServiceAccount' -Tag 'GetServiceAccount' {
         BeforeAll {
             $mockLocalSystemAccountUserName = 'NT AUTHORITY\SYSTEM'
             $mockLocalSystemAccountCredential = New-Object System.Management.Automation.PSCredential $mockLocalSystemAccountUserName, (ConvertTo-SecureString "Password1" -AsPlainText -Force)
@@ -3332,7 +3332,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Find-ExceptionByNumber' -Tag 'FindExceptionByNumber' {
+    Describe 'SqlServerCustomDsc.Common\Find-ExceptionByNumber' -Tag 'FindExceptionByNumber' {
         BeforeAll {
             $mockInnerException = New-Object System.Exception "This is a mock inner exception object"
             $mockInnerException | Add-Member -Name 'Number' -Value 2 -MemberType NoteProperty
@@ -3356,7 +3356,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Get-ProtocolNameProperties' -Tag 'GetProtocolNameProperties' {
+    Describe 'SqlServerCustomDsc.Common\Get-ProtocolNameProperties' -Tag 'GetProtocolNameProperties' {
         It "Should return the correct values when the protocol is '<DisplayName>'" -TestCases @(
             @{
                 ParameterValue = 'TcpIp'
@@ -3393,7 +3393,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Get-ServerProtocolObject' -Tag 'GetServerProtocolObject' {
+    Describe 'SqlServerCustomDsc.Common\Get-ServerProtocolObject' -Tag 'GetServerProtocolObject' {
         BeforeAll {
             $mockInstanceName = 'TestInstance'
 
@@ -3433,7 +3433,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\ConvertTo-ServerInstanceName' {
+    Describe 'SqlServerCustomDsc.Common\ConvertTo-ServerInstanceName' {
         It 'Should return correct service instance for a default instance' {
             $result = ConvertTo-ServerInstanceName -InstanceName 'MSSQLSERVER' -ServerName $env:COMPUTERNAME
 
@@ -3447,7 +3447,7 @@ InModuleScope $script:subModuleName {
         }
     }
 
-    Describe 'SqlServerDsc.Common\Get-FilePathMajorVersion' {
+    Describe 'SqlServerCustomDsc.Common\Get-FilePathMajorVersion' {
         BeforeAll {
             $mockGetItem_SqlMajorVersion = {
                 return New-Object -TypeName Object |

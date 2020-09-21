@@ -37,7 +37,7 @@ else
 #>
 Configuration DSC_SqlEndpoint_Add_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -64,7 +64,7 @@ Configuration DSC_SqlEndpoint_Add_Config
 #>
 Configuration DSC_SqlEndpoint_Remove_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {

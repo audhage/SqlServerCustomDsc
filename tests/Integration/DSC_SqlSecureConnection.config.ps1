@@ -37,7 +37,7 @@ else
 #>
 Configuration DSC_SqlSecureConnection_AddSecureConnection_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -58,7 +58,7 @@ Configuration DSC_SqlSecureConnection_AddSecureConnection_Config
 #>
 Configuration DSC_SqlSecureConnection_RemoveSecureConnection_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {

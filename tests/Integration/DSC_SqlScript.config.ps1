@@ -68,7 +68,7 @@ CREATE DATABASE [$(DatabaseName)]
 Configuration DSC_SqlScript_CreateDependencies_Config
 {
     Import-DscResource -ModuleName 'PSDscResources' -ModuleVersion '2.12.0.0'
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -203,7 +203,7 @@ Configuration DSC_SqlScript_CreateDependencies_Config
 #>
 Configuration DSC_SqlScript_RunSqlScriptAsWindowsUser_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -233,7 +233,7 @@ Configuration DSC_SqlScript_RunSqlScriptAsWindowsUser_Config
 #>
 Configuration DSC_SqlScript_RunSqlScriptAsSqlUser_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -267,7 +267,7 @@ Configuration DSC_SqlScript_RunSqlScriptAsSqlUser_Config
 #>
 Configuration DSC_SqlScript_RunSqlScriptWithVariablesDisabled_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -299,7 +299,7 @@ Configuration DSC_SqlScript_RunSqlScriptWithVariablesDisabled_Config
 #>
 Configuration DSC_SqlScript_RemoveDatabase3_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {

@@ -14,7 +14,7 @@ Configuration Example
     )
 
     Import-DscResource -ModuleName 'PSDscResources' -ModuleVersion '2.12.0.0'
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node localhost
     {

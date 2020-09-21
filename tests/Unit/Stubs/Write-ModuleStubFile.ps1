@@ -64,7 +64,7 @@ function Write-ModuleStubFile
     $null = $headerStringBuilder.AppendLine('.NOTES')
     $null = $headerStringBuilder.Append($indent)
     $null = $headerStringBuilder.Append($indent)
-    $null = $headerStringBuilder.AppendLine("The stubs in this module were generated from the $($MyInvocation.MyCommand) function which is distributed as part of the SqlServerDsc module.")
+    $null = $headerStringBuilder.AppendLine("The stubs in this module were generated from the $($MyInvocation.MyCommand) function which is distributed as part of the SqlServerCustomDsc module.")
     $null = $headerStringBuilder.AppendLine('#>')
     $null = $headerStringBuilder.AppendLine()
     $null = $headerStringBuilder.AppendLine('# Suppressing this rule because these functions are from an external module and are only being used as stubs')

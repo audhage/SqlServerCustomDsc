@@ -219,7 +219,7 @@ Configuration DSC_SqlAlwaysOnService_CleanupDependencies_Config
 #>
 Configuration DSC_SqlAlwaysOnService_EnableAlwaysOn_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -244,7 +244,7 @@ Configuration DSC_SqlAlwaysOnService_EnableAlwaysOn_Config
 #>
 Configuration DSC_SqlAlwaysOnService_DisableAlwaysOn_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {

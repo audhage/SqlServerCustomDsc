@@ -1,4 +1,4 @@
-# Localized resources for helper module SqlServerDsc.Common.
+# Localized resources for helper module SqlServerCustomDsc.Common.
 
 ConvertFrom-StringData @'
     RobocopyIsCopying = Robocopy is copying media from source '{0}' to destination '{1}'. (SQLCOMMON0008)

@@ -11,7 +11,7 @@
 #>
 Configuration Example
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node localhost
     {

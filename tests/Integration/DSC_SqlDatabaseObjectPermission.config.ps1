@@ -71,7 +71,7 @@ CREATE TABLE [$(DatabaseName)].[dbo].[$(TableName)](
 #>
 Configuration DSC_SqlDatabaseObjectPermission_Prerequisites_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -110,7 +110,7 @@ Configuration DSC_SqlDatabaseObjectPermission_Prerequisites_Config
 #>
 Configuration DSC_SqlDatabaseObjectPermission_Single_GrantWithGrant_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -152,7 +152,7 @@ Configuration DSC_SqlDatabaseObjectPermission_Single_GrantWithGrant_Config
 #>
 Configuration DSC_SqlDatabaseObjectPermission_Single_Grant_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -190,7 +190,7 @@ Configuration DSC_SqlDatabaseObjectPermission_Single_Grant_Config
 #>
 Configuration DSC_SqlDatabaseObjectPermission_Single_Revoke_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -227,7 +227,7 @@ Configuration DSC_SqlDatabaseObjectPermission_Single_Revoke_Config
 #>
 Configuration DSC_SqlDatabaseObjectPermission_Multiple_Grant_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {
@@ -270,7 +270,7 @@ Configuration DSC_SqlDatabaseObjectPermission_Multiple_Grant_Config
 #>
 Configuration DSC_SqlDatabaseObjectPermission_Multiple_Revoke_Config
 {
-    Import-DscResource -ModuleName 'SqlServerDsc'
+    Import-DscResource -ModuleName 'SqlServerCustomDsc'
 
     node $AllNodes.NodeName
     {

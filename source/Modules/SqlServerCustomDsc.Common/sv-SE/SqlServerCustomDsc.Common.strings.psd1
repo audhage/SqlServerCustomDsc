@@ -1,5 +1,5 @@
 <#
-    Swedish localized resources for helper module SqlServerDsc.Common.
+    Swedish localized resources for helper module SqlServerCustomDsc.Common.
 
     Strings are added in English here by non-Swedish speaking contributors.
     if you are a Swedish speaking contributor, then please help us translate

@@ -91,10 +91,10 @@
             Tags         = @('DesiredStateConfiguration', 'DSC', 'DSCResourceKit', 'DSCResource')
 
             # A URL to the license for this module.
-            LicenseUri   = 'https://github.com/dsccommunity/SqlServerDsc/blob/master/LICENSE'
+            LicenseUri   = 'https://github.com/dsccommunity/SqlServerCustomDsc/blob/master/LICENSE'
 
             # A URL to the main website for this project.
-            ProjectUri   = 'https://github.com/dsccommunity/SqlServerDsc'
+            ProjectUri   = 'https://github.com/dsccommunity/SqlServerCustomDsc'
 
             # A URL to an icon representing this module.
             IconUri      = 'https://dsccommunity.org/images/DSC_Logo_300p.png'

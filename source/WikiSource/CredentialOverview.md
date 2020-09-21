@@ -16,14 +16,14 @@ in the credential object and use any text string as password.
 >how the MOF is generated when encrypting passwords.
 
 If there is a resource that you find that will not work with a (g)MSAs then
-please submit a [new issue](https://github.com/dsccommunity/SqlServerDsc/issues/new?template=Problem_with_resource.md).
+please submit a [new issue](https://github.com/dsccommunity/SqlServerCustomDsc/issues/new?template=Problem_with_resource.md).
 Then the community can work together to support (g)MSAs for that DSC resource
 too.
 
-For designing a resource for (g)MSAs see the section [Group Managed Service Account](https://github.com/dsccommunity/SqlServerDsc/blob/master/CONTRIBUTING.md#group-managed-service-account)
+For designing a resource for (g)MSAs see the section [Group Managed Service Account](https://github.com/dsccommunity/SqlServerCustomDsc/blob/master/CONTRIBUTING.md#group-managed-service-account)
 in the contribution guidelines.
 
-<sup>_This was discussed in [issue #738](https://github.com/dsccommunity/SqlServerDsc/issues/738)_.</sup>
+<sup>_This was discussed in [issue #738](https://github.com/dsccommunity/SqlServerCustomDsc/issues/738)_.</sup>
 
 ## Built-In Account
 
@@ -35,6 +35,6 @@ and use any text string as password.
 >how the MOF is generated when encrypting passwords.
 
 If there is a resource that you find that will not work with a built-in account
-then please submit a [new issue](https://github.com/dsccommunity/SqlServerDsc/issues/new?template=Problem_with_resource.md).
+then please submit a [new issue](https://github.com/dsccommunity/SqlServerCustomDsc/issues/new?template=Problem_with_resource.md).
 Then the community can work together to support built-in accounts for that
 DSC resource too.

@@ -1,14 +1,14 @@
-# Welcome to the SqlServerDsc wiki
+# Welcome to the SqlServerCustomDsc wiki
 
-<sup>*SqlServerDsc v#.#.#*</sup>
+<sup>*SqlServerCustomDsc v#.#.#*</sup>
 
-Here you will find all the information you need to make use of the SqlServerDsc
+Here you will find all the information you need to make use of the SqlServerCustomDsc
 DSC resources in the latest release. This includes details of the resources
 that are available, current capabilities, known issues, and information to
-help plan a DSC based implementation of SqlServerDsc.
+help plan a DSC based implementation of SqlServerCustomDsc.
 
 Please leave comments, feature requests, and bug reports for this module in
-the [issues section](https://github.com/dsccommunity/SqlServerDsc/issues)
+the [issues section](https://github.com/dsccommunity/SqlServerCustomDsc/issues)
 for this repository.
 
 ## Deprecated resources
@@ -31,18 +31,18 @@ To get started either:
   following command:
 
 ```powershell
-Install-Module -Name SqlServerDsc -Repository PSGallery
+Install-Module -Name SqlServerCustomDsc -Repository PSGallery
 ```
 
-- Download SqlServerDsc from the [PowerShell Gallery](https://www.powershellgallery.com/packages/SqlServerDsc)
+- Download SqlServerCustomDsc from the [PowerShell Gallery](https://www.powershellgallery.com/packages/SqlServerCustomDsc)
   and then unzip it to one of your PowerShell modules folders (such as
   `$env:ProgramFiles\WindowsPowerShell\Modules`).
 
-To confirm installation, run the below command and ensure you see the SqlServerDsc
+To confirm installation, run the below command and ensure you see the SqlServerCustomDsc
 DSC resources available:
 
 ```powershell
-Get-DscResource -Module SqlServerDsc
+Get-DscResource -Module SqlServerCustomDsc
 ```
 
 ## Prerequisites
@@ -58,4 +58,4 @@ _SQLPS_ that is installed with SQL Server.
 
 ## Change log
 
-A full list of changes in each version can be found in the [change log](https://github.com/dsccommunity/SqlServerDsc/blob/master/CHANGELOG.md).
+A full list of changes in each version can be found in the [change log](https://github.com/dsccommunity/SqlServerCustomDsc/blob/master/CHANGELOG.md).
